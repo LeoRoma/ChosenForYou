@@ -21,7 +21,7 @@ body{
 
 .carousel-container{
     margin:auto;
-    width: 100%;
+    width: 1280px;
     min-height: 200px;
     /* overflow: hidden; */
     position: relative;

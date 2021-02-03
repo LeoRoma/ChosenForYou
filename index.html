@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./public/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Chosen For You</title>
 </head>
 
@@ -18,12 +17,24 @@
             <h2>We think you will love these</h2>
         </div>
         <div class="filters">
-            <p>Search | Range | Price</p>
+            <div class="search-container">
+                Search
+            </div>
+            <div class="price-range-filter-container">
+                Price Range
+            </div>
+            <div class="product-type-filter-container">
+                Type:
+                <select name="type" id="dropdown-type" onchange="selectType()">
+                    <option value="" selected="selected">Select subject</option>
+                </select>
+                <input type="submit" value="Submit">
+            </div>
         </div>
         <div class="carousel-container">
             <div class="carousel-inner">
                 <div class="track">
-                
+
                 </div>
             </div>
             <div class="nav">
