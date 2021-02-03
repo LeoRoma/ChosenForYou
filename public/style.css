@@ -1,0 +1,24 @@
+body{
+
+}
+
+.header{
+    margin:auto;
+    width:100%;
+    border-color: aqua;
+    border-style: dashed;
+}
+
+.filters{
+    margin:auto;
+    width:100%;
+    border-color: brown;
+    border-style: dotted;
+}
+
+.carousel{
+    margin:auto;
+    width:100%;
+    border-color: chartreuse;
+    border-style: dotted;
+}
