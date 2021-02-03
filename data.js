@@ -20,6 +20,7 @@ var productDataWomens = [
     { productUrl: 'https://www.newlook.com/uk/womens/clothing/coats-jackets/black-leather-look-biker-jacket-/p/620187701', imageSrc: 'https://media2.newlookassets.com/i/newlook/620187701.jpg', productTitle: 'Black Leather-Look Biker Jacket', price: '32.99' }, 
     { productUrl: 'https://www.newlook.com/uk/womens/footwear/boots/black-leather-flat-chelsea-boots/p/633518801', imageSrc: 'https://media2.newlookassets.com/i/newlook/633518801.jpg', productTitle: 'Black Leather Flat Chelsea Boots', price: '35.99' },
 ];
+
 var productUrl = [];
 var imageSrc = [];
 var productTitles = [];
@@ -35,15 +36,36 @@ for(let i = 0; i < productDataWomens.length; i++){
 
 const html = productDataWomens.map(product => {
     return `
-        <div class="card">
-            <div class="card-title">${product.productTitle}</div>
-            <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-            <div class="card-body">${product.price}</div>
+        <div class="card-container">
+            <div class="card"> 
+                <div class="card-title">${product.productTitle}</div>
+                <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
+                <div class="card-price">${product.price}</div>
+            </div>
         </div>
     `
 }).join(" ");
 console.log(html);
-document.querySelector(".card").innerHTML = html
+document.querySelector(".track").innerHTML = html
+
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+const track = document.querySelector('.track');
+const carouselWidth = document.querySelector('.carousel-container').offsetWidth;
+
+let index = 0;
+
+next.addEventListener('click', () => {
+    index++;
+    prev.classList.add('show');
+    track.style.transform = `translateX(-${index * carouselWidth}px)`;
+})
+
+prev.addEventListener('click', () => {
+    track.style.transform = `translateX(-${0}px)`;
+})
+// const carouselWidth = document.querySelector('.carousel')
 
 
 
