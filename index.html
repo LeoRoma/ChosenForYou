@@ -21,14 +21,17 @@
                 Search
             </div>
             <div class="price-range-filter-container">
-                Price Range
+                Price Range:
+                <select name="price-range" id="dropdown-price-range" onchange="selectPrice()">
+                    <option value="low-high">Price Low - High</option>
+                    <option value="high-low">Price High - Low</option>
+                </select>
             </div>
             <div class="product-type-filter-container">
                 Type:
                 <select name="type" id="dropdown-type" onchange="selectType()">
-                    <option value="" selected="selected">Select subject</option>
+                    
                 </select>
-                <input type="submit" value="Submit">
             </div>
         </div>
         <div class="carousel-container">

@@ -45,7 +45,7 @@ const html = productDataWomens.map(product => {
         </div>
     `
 }).join(" ");
-console.log(html);
+// console.log(html);
 document.querySelector(".track").innerHTML = html
 
 {/* <div class="card-title">${product.productTitle}</div> going into map*/ }
@@ -89,63 +89,6 @@ prev.addEventListener('click', () => {
 
 // dropdown filter price range
 
-const html1 = productDataWomens.map(product => {
-    if (product.productUrl.includes("coats-jackets")) {
-        return `
-        <div class="card-container">
-            <div class="card"> 
-           
-                <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-
-            </div>
-        </div>
-    `
-    }
-
-}).join(" ");
-console.log(html);
-document.querySelector(".track").innerHTML = html1
-
-let type;
-
-switch (type) {
-    case 0:
-        type = "coats-jacket";
-        break;
-    case 1:
-        type = "tops";
-        break;
-    case 2:
-        type = "leggings";
-        break;
-    case 3:
-        type = "jeans";
-        break;
-    case 4:
-        type = "boots";
-        break;
-    case 5:
-        type = "nightwear";
-}
-
-// window.onload = function () {
-//     let dropdown = document.getElementById("dropdown-type");
-//     let defaultOption = document.createElement('option');
-//     defaultOption.text = 'Choose type';
-//     dropdown.add(defaultOption);
-//     dropdown.selectedIndex = 0;
-
-//     for (let i = 0; i < productDataWomens.length; i++) {
-//         // console.log(productDataWomens[i].productUrl);
-//         let option;
-//         let productUrlSplit = productDataWomens[i].productUrl.split('/');
-//         console.log(productUrlSplit[6]);
-//         option = document.createElement('option');
-//         option.text = productUrlSplit[6];
-//         option.value = productUrlSplit[6];
-//         dropdown.add(option);
-//     }
-// }
 let productTypes = []
 for(let i = 0; i < productDataWomens.length; i++){
     let productUrlSplit = productDataWomens[i].productUrl.split('/');
@@ -155,22 +98,21 @@ for(let i = 0; i < productDataWomens.length; i++){
     }
 }
 
-var dropDown = document.getElementById('dropdown-type');
+var dropDownType = document.getElementById('dropdown-type');
 // debugger;
-var options = "";
+var optionsType = "";
 
 for (let i = 0; i < productTypes.length; i++) {
     let item = productTypes[i]
-    options += `<option>${item}</option>`
+    optionsType += `<option value="${item}">${item}</option>`
 }
-document.getElementById("dropdown-type").innerHTML = options;
+document.getElementById("dropdown-type").innerHTML = optionsType;
 
 function selectType() {
-    let x = document.getElementById("dropdown-type").selectedIndex;
-    let selectedType = document.getElementById("dropdown-type").options;
-    console.log(selectedType[x].text);
-    const html1 = productDataWomens.map(product => {
-        if (product.productUrl.includes(selectedType[x].text)) {
+    // let x = document.getElementById("dropdown-type").selectedIndex;
+    let selectedType = document.getElementById("dropdown-type").value;
+    const html = productDataWomens.map(product => {
+        if (product.productUrl.includes(selectedType)) {
             return `
             <div class="card-container">
                 <div class="card"> 
@@ -183,6 +125,47 @@ function selectType() {
         }
     
     }).join(" ");
-    console.log(html);
-    document.querySelector(".track").innerHTML = html1
+    document.querySelector(".track").innerHTML = html
+}
+
+
+//filter by price range
+const priceHighToLow = productDataWomens.sort((a,b) => parseInt(a.price) - parseInt(b.price)); 
+const priceLowToHigh = productDataWomens.sort((a,b) => parseInt(b.price) - parseInt(a.price)); 
+const sortedLowToHigh = productDataWomens.sort((a,b) => parseInt(a.price) - parseInt(b.price)).map(product => {
+    return `
+    <div class="card-container">
+        <div class="card"> 
+       
+            <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
+            <div class="price">${product.price}</div>
+        </div>
+    </div>
+`    
+}).join(" ");
+
+const sortedHighToLow = productDataWomens.sort((a,b) => parseInt(b.price) - parseInt(a.price)).map(product => {
+    return `
+    <div class="card-container">
+        <div class="card"> 
+       
+            <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
+            <div class="price">${product.price}</div>
+        </div>
+    </div>
+`    
+}).join(" ");
+
+console.log(priceHighToLow);
+console.log(priceLowToHigh);
+function selectPrice(){
+    let x = document.getElementById("dropdown-price-range").selectedIndex;
+    let selectedPrice = document.getElementById("dropdown-price-range").value;
+    if(selectedPrice === "low-high"){
+
+        document.querySelector(".track").innerHTML = sortedLowToHigh;
+    }else if(selectedPrice === "high-low"){
+        document.querySelector(".track").innerHTML = sortedHighToLow;
+    }
+    console.log("hi")
 }
