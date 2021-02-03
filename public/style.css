@@ -22,7 +22,7 @@ body{
 .carousel-container{
     margin:auto;
     width: 1280px;
-    min-height: 200px;
+    min-height: 400px;
     /* overflow: hidden; */
     position: relative;
 }
@@ -52,7 +52,7 @@ body{
 .carousel-container .card-container{
     width: 259px;
     flex-shrink: 0;
-    height: 250px;
+    height: 300px;
     border: 1px solid #aaa;
     padding-right: 15px;
     box-sizing:border-box;
@@ -74,7 +74,7 @@ body{
     border-radius: 50%;
     border: 1px solid #aaa;
     position: absolute;
-    top:50%;
+    top:30%;
     transform: translateY(-50%);
 }
 
