@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
+
 body{
 
 }
@@ -20,10 +21,22 @@ body{
 
 .carousel-container{
     margin:auto;
-    width: 1280px;
+    width: 100%;
     min-height: 200px;
     /* overflow: hidden; */
     position: relative;
+}
+
+@media screen and (max-width: 1024px){
+    .carousel-container{
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .carousel-container{
+        width: 80%;
+    }
 }
 
 .carousel-container .carousel-inner{
@@ -31,8 +44,9 @@ body{
 }
 
 .carousel-container .track{
-    display: flex;
+    display: inline-flex;
     transition: transform 0.5s;
+    /* border: 1px solid red; */
 }
 
 .carousel-container .card-container{
@@ -95,3 +109,9 @@ body{
 .nav .next{
     right: -30px;
 }
+
+.nav .next.hide{
+    display: none;
+}
+
+

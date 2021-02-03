@@ -38,15 +38,19 @@ const html = productDataWomens.map(product => {
     return `
         <div class="card-container">
             <div class="card"> 
-                <div class="card-title">${product.productTitle}</div>
+           
                 <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-                <div class="card-price">${product.price}</div>
+
             </div>
         </div>
     `
 }).join(" ");
+{/* <div class="card-title">${product.productTitle}</div> going into map*/ }
+{/* <div class="card-price">${product.price}</div> going into map*/}
 console.log(html);
 document.querySelector(".track").innerHTML = html
+
+// carousel transitions
 
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
@@ -54,16 +58,30 @@ const next = document.querySelector('.next');
 const track = document.querySelector('.track');
 const carouselWidth = document.querySelector('.carousel-container').offsetWidth;
 
+window.addEventListener('resize', () => {
+    carouselWidth = document.querySelector('.carousel-container').offsetWidth;
+})
+
 let index = 0;
 
 next.addEventListener('click', () => {
     index++;
     prev.classList.add('show');
     track.style.transform = `translateX(-${index * carouselWidth}px)`;
+    if(track.offsetWidth - (index * carouselWidth) < carouselWidth ){
+        next.classList.add('hide');
+    }
 })
 
 prev.addEventListener('click', () => {
-    track.style.transform = `translateX(-${0}px)`;
+
+    index--;
+    next.classList.remove('hide');
+    
+    if(index === 0){
+        prev.classList.remove('show');
+    }
+    track.style.transform = `translateX(-${index * carouselWidth}px)`;
 })
 // const carouselWidth = document.querySelector('.carousel')
 
