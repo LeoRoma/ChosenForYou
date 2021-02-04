@@ -83,9 +83,13 @@ dropDownType.addEventListener('change', () => {
         return product.productUrl.includes(selectedType);
     })
     displayProducts(filteredProductTypes);
+    // getSelectedType(filteredProductTypes);
+    // resetProductsList(filteredProductTypes);
 })
 
-
+// function resetProductsList(filteredProductTypes){
+//     filteredProductTypes = [];
+// }
 
 
 
@@ -113,6 +117,8 @@ dropDownPrice.addEventListener("change", function () {
 })
 
 
+
+
 // filter by price range
 // Range
 $(document).ready(function () {
@@ -121,7 +127,7 @@ $(document).ready(function () {
         console.log(typeof $('#price-min').val());
         var number = $('#price-min').val();
         priceMin = $('#price-min').val();
-       
+
     })
     // console.log(priceMin)
     $('#price-max').change(function () {
@@ -129,15 +135,15 @@ $(document).ready(function () {
         console.log(priceMax);
     })
 
-    $('#range-button').click(function(){
+    $('#range-button').click(function () {
         const priceMinInt = parseInt(priceMin);
         const priceMaxInt = parseInt(priceMax);
         const filteredByRangeProducts = productDataWomens.filter(product => {
             const price = parseInt(product.price);
             // console.log(product)
             console.log(priceMin)
-            if(priceMinInt <= price && priceMaxInt >= price){
-               return product;
+            if (priceMinInt <= price && priceMaxInt >= price) {
+                return product;
             }
         })
         console.log(filteredByRangeProducts)
@@ -147,9 +153,23 @@ $(document).ready(function () {
 
 const dropdownRangeButton = document.getElementById('dropdown-range-button');
 dropdownRangeButton.addEventListener('click', () => {
-    document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById('dropdown-range').classList.toggle('show');
 })
-  
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
 // search
 const searchBar = document.getElementById('search-bar');
 

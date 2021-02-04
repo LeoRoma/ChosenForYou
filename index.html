@@ -9,6 +9,8 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="module" src="script.js"></script>
+    <script type="module" src="data.js"></script>
     <title>Chosen For You</title>
 </head>
 
@@ -31,14 +33,14 @@
                 </select>
                 <div class="dropdown">
                     <button id="dropdown-range-button" class="dropbtn">Dropdown</button>
-                    <div id="myDropdown" class="dropdown-content">
+                    <div id="dropdown-range" class="dropdown-content">
                         <div class="rangeslider" data-role="rangeslider">
                             <input type="range" name="price-min" id="price-min" value="5" min="0" max="60">
                             <input type="range" name="price-max" id="price-max" value="60" min="0" max="60">
                         </div>
                         <button id="range-button">Submit</button>
                     </div>
-                  </div>
+                </div>
             </div>
             <div class="product-type-filter-container">
                 Type:
@@ -53,19 +55,18 @@
             </div>
             <div class="nav">
                 <button class="prev">
-                    <span class="material-icon">
-                        navigate_before
+                    <span class="material-icons">
+                        keyboard_arrow_left
                     </span>
                 </button>
                 <button class="next">
-                 next
+                    next
                 </button>
             </div>
         </div>
-     
+
     </div>
-    <script type="module" src="script.js"></script>
-    <script type="module" src="data.js"></script>
+    
 </body>
 
 </html>
