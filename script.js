@@ -1,20 +1,23 @@
 import productDataWomens from './data.js';
+const products = productDataWomens;
 
-
-const html = productDataWomens.map(product => {
-    return `
-        <div class="card-container">
-            <div class="card"> 
-           
-                <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-                <div class="card-title">${product.productTitle}</div>
-                <div class="card-price">${product.price}</div>
+const displayProducts = (products) => {
+    const htmlString = products
+        .map(product => {
+            return `
+            <div class="card-container">
+                <div class="card"> 
+                    <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
+                    <div class="card-title">${product.productTitle}</div>
+                    <div class="card-price">${product.price}</div>
+                </div>
             </div>
-        </div>
-    `
-}).join(" ");
-document.querySelector(".track").innerHTML = html
+        `
+        }).join(" ");
+    document.querySelector(".track").innerHTML = htmlString
+}
 
+displayProducts(products);
 
 
 // carousel transitions
@@ -52,13 +55,13 @@ prev.addEventListener('click', () => {
 })
 
 
-// dropdown filter price range
+// dropdown filter product types
 
 let productTypes = []
-for(let i = 0; i < productDataWomens.length; i++){
+for (let i = 0; i < productDataWomens.length; i++) {
     let productUrlSplit = productDataWomens[i].productUrl.split('/');
     let item = productUrlSplit[6];
-    if(!productTypes.includes(item)){
+    if (!productTypes.includes(item)) {
         productTypes.push(item);
     }
 }
@@ -73,41 +76,27 @@ for (let i = 0; i < productTypes.length; i++) {
 }
 document.getElementById("dropdown-type").innerHTML = optionsType;
 
-dropDownType.addEventListener("change", function() {
+dropDownType.addEventListener("change", function () {
     let selectedType = document.getElementById("dropdown-type").value;
     console.log(selectedType);
-    const productTypes = productDataWomens.map(product => {
-        if (product.productUrl.includes(selectedType)) {
-            return `
-            <div class="card-container">
-                <div class="card"> 
-                    <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-                    <div class="card-title">${product.productTitle}</div>
-                    <div class="price">${product.price}</div>
-                </div>
-            </div>
-        `
-        }
-    }).join(" ");
-    document.querySelector(".track").innerHTML = productTypes;
+    const filteredProductTypes = products.filter(product => {
+        return product.productUrl.includes(selectedType);
+    })
+    displayProducts(filteredProductTypes);
+})
 
-    if(selectedType === "default"){
-        document.querySelector(".track").innerHTML = html;
-    }
-}) 
 
-  
 
 
 
 //filter by price range
-const priceHighToLow = productDataWomens.sort((a,b) => parseInt(a.price) + parseInt(b.price)); 
-const priceLowToHigh = productDataWomens.sort((a,b) => parseInt(b.price) - parseInt(a.price)); 
-console.log(priceHighToLow, "highlow");
+const priceLowToHigh = productDataWomens.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+const priceHighToLow = productDataWomens.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
 console.log(priceLowToHigh, "lowhigh");
+console.log(priceHighToLow, "highlow");
 
 
-const sortedLowToHigh = productDataWomens.sort((a,b) => parseInt(a.price) - parseInt(b.price)).map(product => {
+const sortedLowToHigh = productDataWomens.sort((a, b) => parseInt(a.price) - parseInt(b.price)).map(product => {
     return `
     <div class="card-container">
         <div class="card"> 
@@ -117,10 +106,10 @@ const sortedLowToHigh = productDataWomens.sort((a,b) => parseInt(a.price) - pars
             <div class="price">${product.price}</div>
         </div>
     </div>
-`    
+`
 }).join(" ");
 
-const sortedHighToLow = productDataWomens.sort((a,b) => parseInt(b.price) - parseInt(a.price)).map(product => {
+const sortedHighToLow = productDataWomens.sort((a, b) => parseInt(b.price) - parseInt(a.price)).map(product => {
     return `
     <div class="card-container">
         <div class="card"> 
@@ -130,15 +119,15 @@ const sortedHighToLow = productDataWomens.sort((a,b) => parseInt(b.price) - pars
             <div class="price">${product.price}</div>
         </div>
     </div>
-`    
+`
 }).join(" ");
 
 var dropDownPrice = document.getElementById('dropdown-price');
 
-dropDownPrice.addEventListener("change", function(){
+dropDownPrice.addEventListener("change", function () {
     let selectedPrice = document.getElementById("dropdown-price").value;
 
-    switch(selectedPrice){
+    switch (selectedPrice) {
         case "low-high":
             document.querySelector(".track").innerHTML = sortedLowToHigh;
             break;
@@ -157,14 +146,29 @@ dropDownPrice.addEventListener("change", function(){
 // display it on html 
 
 // search
-// get input from html
-// loop through the array and check if the input is in the productTitle
-// get the item that matches with the input and store it in a variable
-// at the next click button search reset the variable
-// list.filter(searchinput == product.productTitle){
-//     return
-// }
+const searchBar = document.getElementById('search-bar');
 
+searchBar.addEventListener('keyup', function (event) {
+    const input = event.target.value.toString();
+    const filteredProducts = productDataWomens.filter(product => {
+        const productTitleLowCase = product.productTitle.toLowerCase();
+        return productTitleLowCase.includes(input)
+    })
+    displayProducts(filteredProducts);
+});
 
-// popup
+// Range
 
+$(document).ready(function () {
+    const priceMin = $('#price-min').change(function () {
+        const priceMin = $('#price-min').val();
+        console.log(priceMin);
+    })
+
+    const priceMax = $('#price-max').change(function () {
+        const priceMax = $('#price-max').val();
+        console.log(priceMax);
+    })
+})
+
+// pop up

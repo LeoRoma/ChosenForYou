@@ -5,19 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./public/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Chosen For You</title>
 </head>
 
 <body>
-    <div>
+    <div class="container">
         <div class="header">
             <h1>Chosen For You</h1>
             <h2>We think you will love these</h2>
         </div>
-        <div class="filters">
+        <div class="filters-container">
             <div class="search-container">
-                Search
+                <input type="text" id="search-bar" placeholder="Search a product.." title="Type in a product title">
+                <button id="search-button">search</button>
             </div>
             <div class="price-range-filter-container">
                 Price Range:
@@ -35,9 +39,7 @@
         </div>
         <div class="carousel-container">
             <div class="carousel-inner">
-                <div class="track">
-
-                </div>
+                <div class="track"></div>
             </div>
             <div class="nav">
                 <button class="prev">
@@ -46,12 +48,17 @@
                     </span>
                 </button>
                 <button class="next">
-                    <i class="material-icon">
-                        navigate_next
-                    </i>
+                 next
                 </button>
             </div>
         </div>
+        <div class="rangeslider" data-role="rangeslider">
+            <!-- <label for="price-min">Price:</label> -->
+            <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+            <!-- <label for="price-max">Price:</label> -->
+            <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+        </div>
+        <button id="range-button">Submit</button>
     </div>
     <script type="module" src="script.js"></script>
     <script type="module" src="data.js"></script>

@@ -5,6 +5,13 @@ body{
 
 }
 
+.container{
+    width:80%;
+    margin: auto;
+    border-color:orangered;
+    border-style: solid;
+}
+
 .header{
     margin:auto;
     width:100%;
@@ -12,11 +19,26 @@ body{
     border-style: dashed;
 }
 
-.filters{
+.filters-container{
+    position:relative;
     margin:auto;
     width:100%;
+    display: flex;
+    padding: 1%;
     border-color: brown;
     border-style: dotted;
+}
+
+.search-container{
+    margin: auto;
+}
+
+.price-range-filter-container{
+    margin: auto;
+}
+
+.product-type-filter-container{
+    margin: auto;
 }
 
 .carousel-container{
@@ -69,8 +91,8 @@ body{
 }
 
 .nav button{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 1px solid #aaa;
     position: absolute;
@@ -98,6 +120,7 @@ body{
 }
 
 .nav .prev{
+    width:40px;
     left: -30px;
     display: none;
 }
@@ -107,6 +130,7 @@ body{
 }
 
 .nav .next{
+    width:40px;
     right: -30px;
 }
 
@@ -114,4 +138,9 @@ body{
     display: none;
 }
 
+
+
+.rangeslider{
+    width:300px;
+}
 
