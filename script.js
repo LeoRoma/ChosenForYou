@@ -160,14 +160,32 @@ searchBar.addEventListener('keyup', function (event) {
 // Range
 
 $(document).ready(function () {
-    const priceMin = $('#price-min').change(function () {
-        const priceMin = $('#price-min').val();
-        console.log(priceMin);
+    let priceMin, priceMax;
+    $('#price-min').change(function () {
+        console.log(typeof $('#price-min').val());
+        var number = $('#price-min').val();
+        priceMin = $('#price-min').val();
+       
+    })
+    // console.log(priceMin)
+    $('#price-max').change(function () {
+        priceMax = $('#price-max').val();
+        console.log(priceMax);
     })
 
-    const priceMax = $('#price-max').change(function () {
-        const priceMax = $('#price-max').val();
-        console.log(priceMax);
+    $('#range-button').click(function(){
+        const priceMinInt = parseInt(priceMin);
+        const priceMaxInt = parseInt(priceMax);
+        const filteredByRangeProducts = productDataWomens.filter(product => {
+            const price = parseInt(product.price);
+            // console.log(product)
+            console.log(priceMin)
+            if(priceMinInt <= price && priceMaxInt >= price){
+               return product;
+            }
+        })
+        console.log(filteredByRangeProducts)
+        displayProducts(filteredByRangeProducts);
     })
 })
 
