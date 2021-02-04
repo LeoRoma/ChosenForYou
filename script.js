@@ -3,12 +3,12 @@ const products = productDataWomens;
 
 const displayProducts = (products) => {
     const htmlString = products
-        .map(product => {
+        .map((product, index) => {
             return `
             <div class="card-container">
-                <div class="card"> 
-                    <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-                    <div class="card-title">${product.productTitle}</div>
+                <div class="card" id="card"> 
+                    <div class="card-image"><a href="#modal-opened" class="link-${index} id="modal-open"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></a></div>
+                    <div class="card-title"><a href="#modal-opened" class="link-${index} id="modal-open">${product.productTitle}</a></div>
                     <div class="card-price">${product.price}</div>
                 </div>
             </div>
@@ -157,18 +157,18 @@ dropdownRangeButton.addEventListener('click', () => {
 })
 
 // Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
         }
-      }
     }
-  }
+}
 
 // search
 const searchBar = document.getElementById('search-bar');
@@ -185,3 +185,25 @@ searchBar.addEventListener('keyup', (event) => {
 
 
 // pop up
+
+const modal = document.getElementById("modal");
+const span = document.getElementsByClassName("close")[0];
+const $image = $('.card-image');
+
+$(document).ready(function () {
+    $('.card-image').click(() => {
+        modal.style.display = "block";
+        console.log("hi")
+        // modal.classList.add('show');
+    })
+})
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+span.addEventListener('click', () => {
+    modal.style.display = "none";
+})

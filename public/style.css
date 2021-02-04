@@ -120,7 +120,8 @@ body{
 }
 
 .nav .prev{
-    width:40px;
+    margin: auto;
+    width:50px;
     left: -30px;
     display: none;
 }
@@ -130,7 +131,8 @@ body{
 }
 
 .nav .next{
-    width:40px;
+    margin: auto;
+    width:50px;
     right: -30px;
 }
 
@@ -182,3 +184,32 @@ body{
   .dropdown a:hover {background-color: #ddd;}
   
   .show {display: block;}
+
+
+  .modal {
+    display: none;
+    position: fixed; 
+    z-index: 1;
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
