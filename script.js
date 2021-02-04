@@ -76,8 +76,8 @@ for (let i = 0; i < productTypes.length; i++) {
 }
 document.getElementById("dropdown-type").innerHTML = optionsType;
 
-dropDownType.addEventListener("change", function () {
-    let selectedType = document.getElementById("dropdown-type").value;
+dropDownType.addEventListener('change', () => {
+    let selectedType = document.getElementById('dropdown-type').value;
     console.log(selectedType);
     const filteredProductTypes = products.filter(product => {
         return product.productUrl.includes(selectedType);
@@ -89,76 +89,32 @@ dropDownType.addEventListener("change", function () {
 
 
 
-//filter by price range
+// sort price asc and desc
 const priceLowToHigh = productDataWomens.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-const priceHighToLow = productDataWomens.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-console.log(priceLowToHigh, "lowhigh");
-console.log(priceHighToLow, "highlow");
+const priceHighToLow = priceLowToHigh.reverse();
+// console.log(priceLowToHigh, "lowhigh");
+// console.log(priceHighToLow, "highlow");
 
-
-const sortedLowToHigh = productDataWomens.sort((a, b) => parseInt(a.price) - parseInt(b.price)).map(product => {
-    return `
-    <div class="card-container">
-        <div class="card"> 
-       
-            <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-            <div class="card-title">${product.productTitle}</div>
-            <div class="price">${product.price}</div>
-        </div>
-    </div>
-`
-}).join(" ");
-
-const sortedHighToLow = productDataWomens.sort((a, b) => parseInt(b.price) - parseInt(a.price)).map(product => {
-    return `
-    <div class="card-container">
-        <div class="card"> 
-       
-            <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-            <div class="card-title">${product.productTitle}</div>
-            <div class="price">${product.price}</div>
-        </div>
-    </div>
-`
-}).join(" ");
 
 var dropDownPrice = document.getElementById('dropdown-price');
 
 dropDownPrice.addEventListener("change", function () {
-    let selectedPrice = document.getElementById("dropdown-price").value;
+    let selectedPrice = document.getElementById('dropdown-price').value;
 
     switch (selectedPrice) {
-        case "low-high":
-            document.querySelector(".track").innerHTML = sortedLowToHigh;
+        case 'low-high':
+            displayProducts(productDataWomens.sort((a, b) => parseFloat(a.price) - parseFloat(b.price)));
+            // document.querySelector(".track").innerHTML = sortedLowToHigh;
             break;
-        case "high-low":
-            document.querySelector(".track").innerHTML = sortedHighToLow;
+        case 'high-low':
+            displayProducts(productDataWomens.sort((a, b) => parseFloat(b.price) - parseFloat(a.price)));
             break;
     }
 })
 
 
 // filter by price range
-// create a range slider with two handle
-// get the input from the slider
-// loop through the product list and create an if statement by passing the two range within eg. £10 - £20
-// get the items that are between those range 
-// display it on html 
-
-// search
-const searchBar = document.getElementById('search-bar');
-
-searchBar.addEventListener('keyup', function (event) {
-    const input = event.target.value.toString();
-    const filteredProducts = productDataWomens.filter(product => {
-        const productTitleLowCase = product.productTitle.toLowerCase();
-        return productTitleLowCase.includes(input)
-    })
-    displayProducts(filteredProducts);
-});
-
 // Range
-
 $(document).ready(function () {
     let priceMin, priceMax;
     $('#price-min').change(function () {
@@ -188,5 +144,24 @@ $(document).ready(function () {
         displayProducts(filteredByRangeProducts);
     })
 })
+
+const dropdownRangeButton = document.getElementById('dropdown-range-button');
+dropdownRangeButton.addEventListener('click', () => {
+    document.getElementById("myDropdown").classList.toggle("show");
+})
+  
+// search
+const searchBar = document.getElementById('search-bar');
+
+searchBar.addEventListener('keyup', (event) => {
+    const input = event.target.value.toString();
+    const filteredProducts = productDataWomens.filter(product => {
+        const productTitleLowCase = product.productTitle.toLowerCase();
+        return productTitleLowCase.includes(input)
+    })
+    displayProducts(filteredProducts);
+});
+
+
 
 // pop up

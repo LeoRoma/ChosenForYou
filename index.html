@@ -29,6 +29,16 @@
                     <option value="low-high">Price Low - High</option>
                     <option value="high-low">Price High - Low</option>
                 </select>
+                <div class="dropdown">
+                    <button id="dropdown-range-button" class="dropbtn">Dropdown</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <div class="rangeslider" data-role="rangeslider">
+                            <input type="range" name="price-min" id="price-min" value="5" min="0" max="60">
+                            <input type="range" name="price-max" id="price-max" value="60" min="0" max="60">
+                        </div>
+                        <button id="range-button">Submit</button>
+                    </div>
+                  </div>
             </div>
             <div class="product-type-filter-container">
                 Type:
@@ -52,13 +62,7 @@
                 </button>
             </div>
         </div>
-        <div class="rangeslider" data-role="rangeslider">
-            <!-- <label for="price-min">Price:</label> -->
-            <input type="range" name="price-min" id="price-min" value="5" min="0" max="60">
-            <!-- <label for="price-max">Price:</label> -->
-            <input type="range" name="price-max" id="price-max" value="60" min="0" max="60">
-        </div>
-        <button id="range-button">Submit</button>
+     
     </div>
     <script type="module" src="script.js"></script>
     <script type="module" src="data.js"></script>
