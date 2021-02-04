@@ -69,18 +69,21 @@ var optionsType = "<option value='default'>Select type</option>";
 
 for (let i = 0; i < productTypes.length; i++) {
     let item = productTypes[i].charAt(0).toUpperCase() + productTypes[i].slice(1);
-    optionsType += `<option value="${item}">${item}</option>`
+    optionsType += `<option value="${item.toLowerCase()}">${item}</option>`
 }
 document.getElementById("dropdown-type").innerHTML = optionsType;
 
 dropDownType.addEventListener("change", function() {
     let selectedType = document.getElementById("dropdown-type").value;
+    console.log(selectedType);
     const productTypes = productDataWomens.map(product => {
         if (product.productUrl.includes(selectedType)) {
             return `
             <div class="card-container">
                 <div class="card"> 
                     <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
+                    <div class="card-title">${product.productTitle}</div>
+                    <div class="price">${product.price}</div>
                 </div>
             </div>
         `
@@ -110,6 +113,7 @@ const sortedLowToHigh = productDataWomens.sort((a,b) => parseInt(a.price) - pars
         <div class="card"> 
        
             <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
+            <div class="card-title">${product.productTitle}</div>
             <div class="price">${product.price}</div>
         </div>
     </div>
@@ -122,15 +126,17 @@ const sortedHighToLow = productDataWomens.sort((a,b) => parseInt(b.price) - pars
         <div class="card"> 
        
             <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
+            <div class="card-title">${product.productTitle}</div>
             <div class="price">${product.price}</div>
         </div>
     </div>
 `    
 }).join(" ");
 
+var dropDownPrice = document.getElementById('dropdown-price');
 
-function selectPrice(){
-    let selectedPrice = document.getElementById("dropdown-price-range").value;
+dropDownPrice.addEventListener("change", function(){
+    let selectedPrice = document.getElementById("dropdown-price").value;
 
     switch(selectedPrice){
         case "low-high":
@@ -140,7 +146,7 @@ function selectPrice(){
             document.querySelector(".track").innerHTML = sortedHighToLow;
             break;
     }
-}
+})
 
 
 // filter by price range
@@ -162,6 +168,3 @@ function selectPrice(){
 
 // popup
 
-function clickme(){
-    console.log("hello")
-}
