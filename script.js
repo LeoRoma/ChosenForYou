@@ -7,7 +7,7 @@ const displayProducts = (products) => {
             return `
             <div class="card-container">
                 <div class="card" id="card"> 
-                    <div class="card-image"><a href="#modal-opened" class="link-${index} id="modal-open"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></a></div>
+                    <div class="card-image"><a href="#modal-opened" data-index="${index}" id="modal-open"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></a></div>
                     <div class="card-title"><a href="#modal-opened" class="link-${index} id="modal-open">${product.productTitle}</a></div>
                     <div class="card-price">${product.price}</div>
                 </div>
@@ -188,22 +188,59 @@ searchBar.addEventListener('keyup', (event) => {
 
 const modal = document.getElementById("modal");
 const span = document.getElementsByClassName("close")[0];
-const $image = $('.card-image');
+const $track = $('.track');
+const $modal = $('.modal');
 
 $(document).ready(function () {
-    $('.card-image').click(() => {
+    $track.delegate('#modal-open', 'click', function () {
+        // console.log(i)
+        let index = $(this).data('index');
+        let currentProduct = productDataWomens[index];
+        getCurrentProduct(currentProduct);
         modal.style.display = "block";
-        console.log("hi")
-        // modal.classList.add('show');
+
     })
+
 })
 
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+
+function getCurrentProduct(currentProduct) {
+    const url = currentProduct.productUrl;
+    const title = currentProduct.productTitle;
+    const price = currentProduct.price;
+    const image = currentProduct.imageSrc;
+    const currentProductSplit = currentProduct.productUrl.split('/');
+    const genre = currentProductSplit[4];
+    const industry = currentProductSplit[5];
+    const type = currentProductSplit[6];
+    appendCurrentProduct(url, title, price, image, genre, industry, type)
 }
 
+function appendCurrentProduct(url, title, price, image, genre, industry, type) {
+    $('#modal').html(
+        `
+        <span class="close">&times;</span>
+        <div class="header">
+            <h1>${title}</h1>
+            <p>${genre}</p>
+            <p>${industry}</p>
+            <p>${type}</p>
+            <p>${price}</p>
+        </div>
+        <div class="image">
+            <img src="${image}" alt="product"/>
+        </div>
+        <div class="url">
+            <a href="${url}">Visit web page</a>
+        </div>
+        `
+    );
+}
+// close pop up
 span.addEventListener('click', () => {
+    modal.style.display = "none";
+})
+
+$modal.delegate('.close', 'click', function () {
     modal.style.display = "none";
 })
