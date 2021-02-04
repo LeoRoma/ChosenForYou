@@ -176,3 +176,5 @@ function selectPrice(){
 
 
 // popup
+
+export default productDataWomens;
