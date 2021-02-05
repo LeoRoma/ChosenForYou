@@ -10,7 +10,7 @@ const filters = {
 
 function applyFilters() {
     const products = [...productDataWomens];
-    const filteredProducts = products.filter(filterByType).filter(filterByRange)
+    const filteredProducts = products.filter(filterByType).filter(filterByRange).filter(filterBySearch);
     // .filter(product => {
     //     const price = parseFloat(product.price);
     //     if (filters.range.priceMin <= price && filters.range.priceMax >= price) {
@@ -60,8 +60,9 @@ function filterByRange(product) {
 }
 
 // Search
-function filterBySearch() {
-
+function filterBySearch(product) {
+    const productTitleLowCase = product.productTitle.toLowerCase();
+    return productTitleLowCase.includes(filters.search);
 }
 
 // Listeners
