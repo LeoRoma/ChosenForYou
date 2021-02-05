@@ -25,6 +25,9 @@ const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
 const track = document.querySelector('.track');
+
+
+
 let carouselWidth = document.querySelector('.carousel-container').offsetWidth;
 
 window.addEventListener('resize', () => {
@@ -34,6 +37,7 @@ window.addEventListener('resize', () => {
 let index = 0;
 
 next.addEventListener('click', () => {
+
     index++;
     prev.classList.add('show');
     track.style.transform = `translateX(-${index * carouselWidth}px)`;

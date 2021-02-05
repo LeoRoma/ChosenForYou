@@ -22,9 +22,9 @@ body{
 .filters-container{
     position:relative;
     margin:auto;
-    width:98%;
+    width:100%;
     display: flex;
-    padding: 1%;
+    padding: 0%;
     border-color: brown;
     border-style: dotted;
 }
@@ -189,13 +189,13 @@ body{
   .modal {
     display: none;
     margin: auto;
-
+    padding: 2%;
     position: absolute; 
     z-index: 1;
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 55%; 
+    /* padding-top: 100px;  */
+    left: 30%;
+    top: 5%;
+    /* width: 40%;  */
     height: 65%; 
     overflow: auto; 
     background-color: white; 
