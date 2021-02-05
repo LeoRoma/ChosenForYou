@@ -11,44 +11,33 @@ const filters = {
 function applyFilters() {
     const products = [...productDataWomens];
     const filteredProducts = products.filter(filterByType).filter(filterByRange).filter(filterBySearch);
-    // .filter(product => {
-    //     const price = parseFloat(product.price);
-    //     if (filters.range.priceMin <= price && filters.range.priceMax >= price) {
-    //         return product;
-    //     }
-    // }).filter(product => {
-    //     const productTitleLowCase = product.productTitle.toLowerCase();
-
-    //     return productTitleLowCase.includes(filters.search);
-    // })
 
     if (filters.sort === 'low-high') {
-        sortPriceLowToHigh(filteredProducts);
+        filteredProducts.sort(sortPriceLowToHigh);
+        // sortPriceLowToHigh(filteredProducts);
     } else {
-        sortPriceHighToLow(filteredProducts);
+        filteredProducts.sort(sortPriceHighToLow);
     }
 
     displayProducts(filteredProducts);
 }
-// sort(funzione)
-// filter(type).filter(range).filter(sort).filter(search)
 
 // Filters
 // Type
 function filterByType(product) {
-    // console.log(product)
     let productUrlSplit = product.productUrl.split('/');
     let type = productUrlSplit[6];
     return type === filters.type || filters.type === "";
 }
 
 // Sort
-function sortPriceLowToHigh(products) {
-    return products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+function sortPriceLowToHigh(a, b) {
+    return parseFloat(a.price) - parseFloat(b.price);
+    // return products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 }
 
-function sortPriceHighToLow(products) {
-    return products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+function sortPriceHighToLow(a, b) {
+    return parseFloat(b.price) - parseFloat(a.price);
 }
 
 // Range
@@ -95,12 +84,9 @@ const searchButton = document.getElementById('search-button');
 
 searchBar.addEventListener('keyup', (event) => {
     filters.search = event.target.value.toString();
-    console.log(filters.search);
-    // applyFilters();
 });
 
 searchButton.addEventListener('click', () => {
-    console.log("hello")
     applyFilters();
 });
 
@@ -111,7 +97,6 @@ $(() => {
         priceMin = $('#price-min').val().toString();
         filters.range.priceMin = parseFloat(priceMin);
     })
-    // console.log(priceMin)
     $('#price-max').change(function () {
         priceMax = $('#price-max').val().toString();
         filters.range.priceMax = parseFloat(priceMax);
