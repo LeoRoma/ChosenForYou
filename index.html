@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script type="module" src="script.js"></script>
-    <script type="module" src="data.js"></script>
+
     <title>Chosen For You</title>
 </head>
 
@@ -28,11 +26,12 @@
             <div class="price-range-filter-container">
                 Price Range:
                 <select name="price-range" id="dropdown-price">
+                    <option value="low-high">Sort By:</option>
                     <option value="low-high">Price Low - High</option>
                     <option value="high-low">Price High - Low</option>
                 </select>
                 <div class="dropdown">
-                    <button id="dropdown-range-button" class="dropbtn">Dropdown</button>
+                    <button id="dropdown-range-button" class="dropbtn">Price</button>
                     <div id="dropdown-range" class="dropdown-content">
                         <div class="rangeslider" data-role="rangeslider">
                             <input type="range" name="price-min" id="price-min" value="5" min="0" max="60">
@@ -72,7 +71,9 @@
             </div>
         </div>
     </div>
-    
+    <script src="./src/data.js"></script>
+    <script src="./src/script.js"></script>
+    <script src="./src/filters.js"></script>
 </body>
 
 </html>

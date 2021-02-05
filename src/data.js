@@ -21,4 +21,4 @@ var productDataWomens = [
     { productUrl: 'https://www.newlook.com/uk/womens/footwear/boots/black-leather-flat-chelsea-boots/p/633518801', imageSrc: 'https://media2.newlookassets.com/i/newlook/633518801.jpg', productTitle: 'Black Leather Flat Chelsea Boots', price: '35.99' },
 ];
 
-export default productDataWomens;
+

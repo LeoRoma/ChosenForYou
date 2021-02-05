@@ -6,7 +6,7 @@ body{
 }
 
 .container{
-    width:80%;
+    width:90%;
     margin: auto;
     border-color:orangered;
     border-style: solid;
@@ -22,7 +22,7 @@ body{
 .filters-container{
     position:relative;
     margin:auto;
-    width:100%;
+    width:98%;
     display: flex;
     padding: 1%;
     border-color: brown;
