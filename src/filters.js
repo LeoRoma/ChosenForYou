@@ -5,29 +5,27 @@ const filters = {
     type: "",
     search: "",
     sort: "",
-    range: { priceMin: 0, priceMax: 60}
+    range: { priceMin: 0, priceMax: 60 }
 };
 
 function applyFilters() {
-    console.log(filters.search);
     const products = [...productDataWomens];
-    const filteredProducts = products.filter(product => {
+    const filteredProducts = products.filter(filterByType
+        // let productUrlSplit = product.productUrl.split('/');
+        // let type = productUrlSplit[6];
 
-        let productUrlSplit = product.productUrl.split('/');
-        let type = productUrlSplit[6];
-        
-        return type === filters.type || filters.type === "";
-    })
-    .filter(product => {
-        const price = parseFloat(product.price);
-        if (filters.range.priceMin <= price && filters.range.priceMax >= price) {
-            return product;
-        }
-    }).filter(product => {
-        const productTitleLowCase = product.productTitle.toLowerCase();
-        
-        return productTitleLowCase.includes(filters.search);
-    })
+        // return type === filters.type || filters.type === "";
+    )
+        // .filter(product => {
+        //     const price = parseFloat(product.price);
+        //     if (filters.range.priceMin <= price && filters.range.priceMax >= price) {
+        //         return product;
+        //     }
+        // }).filter(product => {
+        //     const productTitleLowCase = product.productTitle.toLowerCase();
+
+        //     return productTitleLowCase.includes(filters.search);
+        // })
 
     if (filters.sort === 'low-high') {
         sortPriceLowToHigh(filteredProducts);
@@ -40,7 +38,16 @@ function applyFilters() {
 // sort(funzione)
 // filter(type).filter(range).filter(sort).filter(search)
 
-// sort price asc and desc
+// Filters
+// Type
+function filterByType(product) {
+    // console.log(product)
+    let productUrlSplit = product.productUrl.split('/');
+    let type = productUrlSplit[6];
+    return type === filters.type || filters.type === "";
+}
+
+// Sort
 function sortPriceLowToHigh(products) {
     return products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 }
@@ -49,16 +56,22 @@ function sortPriceHighToLow(products) {
     return products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
 }
 
+// Range
+function filterByRange() {
 
+}
 
+// Search
+function filterBySearch() {
 
-// listeners
+}
 
+// Listeners
 // Type
 const dropDownType = document.getElementById('dropdown-type');
 dropDownType.addEventListener('change', () => {
     filters.type = document.getElementById('dropdown-type').value;
-    if(filters.type === 'default'){
+    if (filters.type === 'default') {
         filters.type = "";
     }
     applyFilters();
@@ -92,8 +105,19 @@ searchButton.addEventListener('click', () => {
     applyFilters();
 });
 
-
-
+// Range Selection
+$(() => {
+    let priceMin, priceMax;
+    $('#price-min').change(function () {
+        priceMin = $('#price-min').val().toString();
+        filters.range.priceMin = parseFloat(priceMin);
+    })
+    // console.log(priceMin)
+    $('#price-max').change(function () {
+        priceMax = $('#price-max').val().toString();
+        filters.range.priceMax = parseFloat(priceMax);
+    })
+})
 
 // Toggle range slider
 const dropdownRangeButton = document.getElementById('dropdown-range-button');
@@ -114,14 +138,3 @@ window.onclick = function (event) {
         }
     }
 }
-
-// Range Selection
-$(() => {
-    $('#price-min').change(function () {
-        filters.range.priceMin = $('#price-min').val();
-    })
-    // console.log(priceMin)
-    $('#price-max').change(function () {
-        filters.range.priceMax = $('#price-max').val();
-    })
-})
