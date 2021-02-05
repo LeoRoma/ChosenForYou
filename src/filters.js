@@ -10,22 +10,17 @@ const filters = {
 
 function applyFilters() {
     const products = [...productDataWomens];
-    const filteredProducts = products.filter(filterByType
-        // let productUrlSplit = product.productUrl.split('/');
-        // let type = productUrlSplit[6];
+    const filteredProducts = products.filter(filterByType).filter(filterByRange)
+    // .filter(product => {
+    //     const price = parseFloat(product.price);
+    //     if (filters.range.priceMin <= price && filters.range.priceMax >= price) {
+    //         return product;
+    //     }
+    // }).filter(product => {
+    //     const productTitleLowCase = product.productTitle.toLowerCase();
 
-        // return type === filters.type || filters.type === "";
-    )
-        // .filter(product => {
-        //     const price = parseFloat(product.price);
-        //     if (filters.range.priceMin <= price && filters.range.priceMax >= price) {
-        //         return product;
-        //     }
-        // }).filter(product => {
-        //     const productTitleLowCase = product.productTitle.toLowerCase();
-
-        //     return productTitleLowCase.includes(filters.search);
-        // })
+    //     return productTitleLowCase.includes(filters.search);
+    // })
 
     if (filters.sort === 'low-high') {
         sortPriceLowToHigh(filteredProducts);
@@ -57,8 +52,11 @@ function sortPriceHighToLow(products) {
 }
 
 // Range
-function filterByRange() {
-
+function filterByRange(product) {
+    const price = parseFloat(product.price);
+    if (filters.range.priceMin <= price && filters.range.priceMax >= price) {
+        return product;
+    }
 }
 
 // Search
