@@ -37,7 +37,8 @@ function applyFilters() {
 
     displayProducts(filteredProducts);
 }
-
+// sort(funzione)
+// filter(type).filter(range).filter(sort).filter(search)
 
 // sort price asc and desc
 function sortPriceLowToHigh(products) {
