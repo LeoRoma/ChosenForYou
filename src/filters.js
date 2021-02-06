@@ -1,6 +1,4 @@
-// dropdown filter product types
-
-
+  
 const filters = {
     type: "",
     search: "",
@@ -9,12 +7,12 @@ const filters = {
 };
 
 function applyFilters() {
+  // @ts-ignore
     const products = [...productDataWomens];
     const filteredProducts = products.filter(filterByType).filter(filterByRange).filter(filterBySearch);
 
     if (filters.sort === 'low-high') {
         filteredProducts.sort(sortPriceLowToHigh);
-        // sortPriceLowToHigh(filteredProducts);
     } else {
         filteredProducts.sort(sortPriceHighToLow);
     }
@@ -33,7 +31,6 @@ function filterByType(product) {
 // Sort
 function sortPriceLowToHigh(a, b) {
     return parseFloat(a.price) - parseFloat(b.price);
-    // return products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 }
 
 function sortPriceHighToLow(a, b) {
@@ -74,6 +71,7 @@ dropDownPrice.addEventListener("change", function () {
 })
 
 // Submit range
+// @ts-ignore
 $('#range-button').click(function () {
     applyFilters()
 })
@@ -91,13 +89,18 @@ searchButton.addEventListener('click', () => {
 });
 
 // Range Selection
+// @ts-ignore
 $(() => {
     let priceMin, priceMax;
+    // @ts-ignore
     $('#price-min').change(function () {
+        // @ts-ignore
         priceMin = $('#price-min').val().toString();
         filters.range.priceMin = parseFloat(priceMin);
     })
+    // @ts-ignore
     $('#price-max').change(function () {
+        // @ts-ignore
         priceMax = $('#price-max').val().toString();
         filters.range.priceMax = parseFloat(priceMax);
     })

@@ -1,4 +1,10 @@
-const products = productDataWomens;
+// @ts-nocheck
+const products = [...productDataWomens];
+
+function getLandingPageImage() {
+    $(".header-image").append(`<img src="${products[5].imageSrc}" alt="landing-image" />`);
+}
+getLandingPageImage();
 
 const displayProducts = (products) => {
     const htmlString = products
@@ -6,9 +12,9 @@ const displayProducts = (products) => {
             return `
             <div class="card-container">
                 <div class="card" id="card"> 
-                    <div class="card-image"><a href="#modal-opened" data-index="${index}" id="modal-open"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></a></div>
-                    <div class="card-title"><a href="#modal-opened" class="link-${index} id="modal-open">${product.productTitle}</a></div>
-                    <div class="card-price">${product.price}</div>
+                    <div class="card-image"><a href="#modal-opened" data-index="${index}" id="popup-open"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></a></div>
+                    <div class="card-title">${product.productTitle}</div>
+                    <div class="card-price">£${product.price}</div>
                 </div>
             </div>
         `
@@ -19,14 +25,10 @@ const displayProducts = (products) => {
 displayProducts(products);
 
 
-// carousel transitions
-
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
 const track = document.querySelector('.track');
-
-
 
 let carouselWidth = document.querySelector('.carousel-container').offsetWidth;
 
@@ -62,7 +64,9 @@ prev.addEventListener('click', () => {
 
 let productTypes = []
 function getProductTypes() {
+    // @ts-ignore
     for (let i = 0; i < productDataWomens.length; i++) {
+        // @ts-ignore
         let productUrlSplit = productDataWomens[i].productUrl.split('/');
         let item = productUrlSplit[6];
         if (!productTypes.includes(item)) {
@@ -86,16 +90,16 @@ createOptionsType()
 
 // pop up
 
-const modal = document.getElementById("modal");
+const popup = document.getElementById("popup");
 const $track = $('.track');
-const $modal = $('.modal');
+const $popupCard = $('.popup-card');
 
 
-$track.delegate('#modal-open', 'click', function(){
+$track.delegate('#popup-open', 'click', function () {
     let index = $(this).data('index');
     let currentProduct = productDataWomens[index];
     getCurrentProduct(currentProduct);
-    modal.style.display = "block";
+    popup.style.display = "block";
 })
 
 
@@ -112,20 +116,21 @@ function getCurrentProduct(currentProduct) {
 }
 
 function appendCurrentProduct(url, title, price, image, genre, industry, type) {
-    $modal.html(
+    $popupCard.html(
         `
-        <span class="close">&times;</span>
-        <div class="header">
+   
+        <div class="popup-image">
+        <span class="close-left">&times;</span>
+            <img src="${image}" alt="product"/>
+        </div>
+        
+        <div class="popup-info">
+        <span class="close-right">&times;</span>
             <h1>${title}</h1>
             <p>${genre}</p>
             <p>${industry}</p>
             <p>${type}</p>
-            <p>${price}</p>
-        </div>
-        <div class="image">
-            <img src="${image}" alt="product"/>
-        </div>
-        <div class="url">
+            <p>£${price}</p>
             <a href="${url}">Visit web page</a>
         </div>
         `
@@ -134,17 +139,11 @@ function appendCurrentProduct(url, title, price, image, genre, industry, type) {
 // close pop up
 
 
-$modal.delegate('.close', 'click', function () {
-    modal.style.display = "none";
+$popupCard.delegate('.close-right', 'click', function () {
+    popup.style.display = "none";
 })
 
-
-// function filters(products){
-//     let newProducts = products;
-//     newProducts = getSelectedType(newProducts);
-//     displayProducts(newProducts);
-// }
-
-// filters(productDataWomens);
-
+$popupCard.delegate('.close-left', 'click', function () {
+    popup.style.display = "none";
+})
 
