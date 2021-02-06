@@ -15,7 +15,7 @@ body{
 .landing-page{
     margin: auto;
     width: 100%;
-    /* height: 100vh; */
+    height: 100vh;
     background: black;
 }
 
@@ -29,15 +29,14 @@ body{
 }
 
 .header{
-    width:60%;
+    width:50%;
     margin:auto;
 }
 
 .header h1{
     margin: auto;
-    top:0;
     color:white;
-    font-size: 12vw;
+    font-size: 10vw;
     line-height: 1;
     position: relative;
     animation: slideInDown 2s;
@@ -48,15 +47,17 @@ body{
     margin: auto;
     color: white;
     position: relative;
-    right: -59.5%;
-    top:-80%;
+    right: -61%;
     animation: fadein 12s;
+    line-height: 5;
+    z-index: 2;
     /* margin-top: -200px; */
 }
 
 .header-image{
     width: 40%;
     /* height: 600px; */
+    position: relative;
     margin: auto;
     overflow: hidden;
 }
@@ -74,7 +75,8 @@ body{
     margin:auto;
     width:90%;
     display: flex;
-    padding: 0%;
+    padding: 1%;
+    border: yellow solid;
     /* border-color: brown;
     border-style: dotted; */
 }
@@ -252,24 +254,21 @@ body{
     /* display: flex; */
 }
 
-.popup-card-laptop{
+.popup-card{
     width: 100%;
     /* height: 400px; */
     display:flex;
 }
 
-.popup-image-laptop{
+.popup-image{
     position: relative;
     width: 50%;
     height: 405px;
     margin: auto;
     flex: 0 0 50%
-    /* border-color: lawngreen;
-    border-style: groove; */
 }
 
-.popup-image-laptop img{
-    /* position: relative; */
+.popup-image img{
     width: 100%;
     height: 405px;
     object-fit: fill;
@@ -277,51 +276,13 @@ body{
     animation: fadein 2s;
 }
 
-.popup-info-laptop{
+.popup-info{
     position: relative;
     padding-left: 3%;
     width:50%;
     height: 405px;
     margin: auto;
     animation: fadein 2s;
-}
-
-.popup-card-mobile{
-    padding: 2px;
-    width: 98%;
-    display:none;
-}
-
-.popup-image-mobile{
-    position: relative;
-    width: 100%;
-    height: 200px;
-    margin: auto;
-    flex: 0 0 50%
-}
-
-.popup-image-mobile img{
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-    animation: fadein 3s;
-}
-
-.popup-info-mobile{
-    margin: auto;
-    position: relative;
-    padding-left: 3%;
-    width:96%;
-    height: 200px;
-    animation: fadein 2s;
-}
-
-.popup-info-mobile h1{
-    font-size: 5vw;
-}
-
-.popup-info-mobile p{
-    font-size: 2vw;
 }
 
 .close {
@@ -342,76 +303,42 @@ body{
     cursor: pointer;
 }
 
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 540px) {
-    .popup{
-        width:50%;
-        /* height:50vh; */
+@media only screen and (max-width: 1200px) {
+    .landing-page-wrapper{
+        top:20%;
     }
-    .popup-card-laptop{
-        display:none;
-    }
-
-    .popup-card-mobile{
-        display: inline-block;
-        width: 95%;
-        height: 400px;
-    }
-
-
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 768px) {
 
     .popup{
-        width:55%;
+        width:60%;
         /* height: 630px; */
     }
+
     .popup-card{
-        width: 100%;
-        /* flex-direction:column; */
-        height: 900px;
-        border-color: lightcoral;
-        border-style: groove;
+        height: 350px;
     }
     .popup-image{
         width: 100%;
-        /* height: 100px; */
-        /* height: 300px; */
-        /* border-color: lightcoral; */
+        height: 350px;
+
     }
     .popup-image img{
         width: 100%;
-        /* height: 2px; */
-        /* height: 300px; */
+        height: 350px;
     }
     .popup-info{
         width: 97%;
-        /* height: 1px; */
+        height: 350px;
     }
+
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
-    .popup-card{
-        /* width: 10%; */
-        /* display:initial; */
-        height: 350px;
+    .landing-page-wrapper{
+        top:20%;
     }
-    .popup-image{
-        width: 100%;
-        height: 350px;
 
-    }
-    .popup-image img{
-        width: 100%;
-        height: 350px;
-    }
-    .popup-info{
-        width: 97%;
-        height: 350px;
+    .popup{
+        width: 70%;
     }
 
     .popup-info h1{
@@ -419,33 +346,129 @@ body{
     }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (max-width: 1200px) {
-    .popup{
-        width:70%;
-        /* height: 630px; */
+@media only screen and (max-width: 768px) {
+
+    .landing-page-wrapper{
+        display: inline-block;
+        top:5%;
     }
 
+    .landing-page-wrapper{
+        width: 90%;
+    }
+
+    .header{
+        width:90%;
+        margin:auto;
+        /* text-align: center; */
+    }
+    
+    .header h1{
+        top:0;
+        color:white;
+        font-size: 80px;
+    }
+    
+    .header p{
+        font-size: 12px;
+        color: white;
+        right: 0%;
+        animation: fadein 12s;
+    }
+    
+    .header-image{
+        top:30px;
+        width: 90%;
+        height: 300px;
+        margin: auto;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    .header-image img{
+        width:90%;
+        height: 400px;
+        animation-name: zoominoutsinglefeatured;
+        animation-duration: 4s;  
+    }
+
+    .popup{
+        width:90%;
+    }
     .popup-card{
-        /* width: 10%; */
-        /* display:initial; */
-        height: 350px;
+        width: 100%;
     }
     .popup-image{
         width: 100%;
-        height: 350px;
-
     }
     .popup-image img{
         width: 100%;
-        height: 350px;
     }
     .popup-info{
         width: 97%;
-        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .landing-page-wrapper{
+
+        top:5%;
+    }
+    .header h1{
+        top:0;
+        color:white;
+        font-size: 70px;
     }
 
+    .header-image{
+        top:0;
+        width: 100%;
+        height: 300px;
+        margin: auto;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .popup{
+        width:50%;
+    }
+
+    .popup-card{
+        display:inline-block;
+        width: 95%;
+        height: 400px;
+    }
+
+    .popup-image{
+        width: 100%;
+        height: 200px;
+        margin: auto;
+        flex: 0 0 50%
+    }
+    
+    .popup-image img{
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        animation: fadein 3s;
+    }
+    
+    .popup-info{
+        padding-left: 3%;
+        width:96%;
+        height: 200px;
+        animation: fadein 2s;
+    }
+    
+    .popup-info h1{
+        font-size: 5vw;
+    }
+    
+    .popup-info p{
+        font-size: 2vw;
+    }
 }
+
 
 @keyframes fadein{
     0% {opacity: 0;}
