@@ -15,27 +15,34 @@
 <body>
     <div class="container">
         <div class="landing-page">
-            <div class="header">
-                <h1>Chosen For You</h1>
-                <p>We think you will love these</p>
-            </div>
-            <div class="header-image">
-
+            <div class="landing-page-wrapper">
+                <div class="header" id="slide-bottom">
+                    <h1>Chosen For You</h1>
+                    <p>We think you will love these</p>
+               
+                </div>
+                <div class="header-image">
+    
+                </div>
             </div>
         </div>
+ 
         <div class="filters-container">
-            <div class="search-container">
-                <input type="text" id="search-bar" placeholder="Search a product.." title="Type in a product title">
-                <button id="search-button">search</button>
-            </div>
-            <div class="price-range-filter-container">
-                Price Range:
+            <div class="sort-container">
                 <select name="price-range" id="dropdown-price">
                     <option value="low-high">Sort By:</option>
                     <option value="low-high">Price Low - High</option>
                     <option value="high-low">Price High - Low</option>
                 </select>
-                <div class="dropdown">
+            </div>
+   
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search a product.." title="Type in a product title">
+                <button id="search-button">search</button>
+            </div>
+            <div class="price-range-filter-container">
+
+                <div class="dropdown-container">
                     <button id="dropdown-range-button" class="dropbtn">Price</button>
                     <div id="dropdown-range" class="dropdown-content">
                         <div class="rangeslider" data-role="rangeslider">
@@ -47,7 +54,6 @@
                 </div>
             </div>
             <div class="product-type-filter-container">
-                Type:
                 <select name="type" id="dropdown-type">
                     <option>Select type</option>
                 </select>
