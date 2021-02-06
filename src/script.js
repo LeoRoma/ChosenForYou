@@ -13,8 +13,8 @@ const displayProducts = (products) => {
             <div class="card-container">
                 <div class="card" id="card"> 
                     <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-                    <div class="card-title">${product.productTitle}</div>
-                    <div class="card-price">£${product.price}</div>
+                    <div class="card-title"><h5>${product.productTitle}</h5></div>
+                    <div class="card-price"><p>£${product.price}</p></div>
                     <a href="#modal-opened" data-index="${index}" id="popup-open">More Info</a>
                 </div>
             </div>
