@@ -13,35 +13,57 @@
 </head>
 
 <body>
+    <!-- <div class="carousel-container">
+        <div class="carousel-inner">
+            <div class="track">
+                <div class="card-container">
+
+                </div>
+            </div>   
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="container">
         <div class="landing-page">
             <div class="landing-page-wrapper">
                 <div class="header" id="slide-bottom">
                     <h1>Chosen For You</h1>
                     <p>We think you will love these</p>
-               
+
                 </div>
                 <div class="header-image">
-    
+
                 </div>
             </div>
         </div>
- 
+
         <div class="filters-container">
-            
+
             <div class="search-container">
                 <input type="text" id="search-bar" placeholder="Search a product.." title="Type in a product title" />
-                <button id="search-button">search</button>
+                <button id="search-button">Search</button>
             </div>
 
             <div class="sort-container">
                 <select name="price-range" id="dropdown-price">
-                    <option value="low-high">Sort By:</option>
+                    <option value="low-high">Sort By: Price</option>
                     <option value="low-high">Price Low - High</option>
                     <option value="high-low">Price High - Low</option>
                 </select>
             </div>
-   
+
             <div class="price-range-filter-container">
 
                 <div class="dropdown-container">
@@ -61,29 +83,29 @@
                 </select>
             </div>
         </div>
+
         <div class="carousel-container">
             <div class="carousel-inner">
                 <div class="track"></div>
             </div>
             <div class="nav">
                 <button class="prev">
-                    <span class="material-icons">
-                        &#8592;
-                    </span>
+                    &#8592;
                 </button>
                 <button class="next">
                     &rarr;
                 </button>
             </div>
         </div>
-        <div id="modal-opened">
-            
-            <div class="popup" id="popup">
-                <span class="close">&times;</span>
-                <div class="popup-card"></div>      
-            </div>
+
+        <div class="popup" id="popup">
+            <span class="close">&times;</span>
+            <div class="popup-card"></div>
         </div>
+
+ 
     </div>
+
     <script src="./src/data.js"></script>
     <script src="./src/script.js"></script>
     <script src="./src/filters.js"></script>

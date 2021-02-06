@@ -12,23 +12,29 @@ const displayProducts = (products) => {
             return `
             <div class="card-container">
                 <div class="card" id="card"> 
-                    <div class="card-image"><a href="#modal-opened" data-index="${index}" id="popup-open"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></a></div>
+                    <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
                     <div class="card-title">${product.productTitle}</div>
                     <div class="card-price">£${product.price}</div>
+                    <a href="#modal-opened" data-index="${index}" id="popup-open">More Info</a>
                 </div>
             </div>
         `
         }).join(" ");
+        setNextButtonHide(products)
     document.querySelector(".track").innerHTML = htmlString
 }
 
-displayProducts(products);
 
 
+{/* <a href="#modal-opened" data-index="${index}" id="popup-open">More Info</a> */}
+
+// Carousel
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
 const track = document.querySelector('.track');
+
+const indicatorParents = document.querySelector('.nav ul');
 
 let carouselWidth = document.querySelector('.carousel-container').offsetWidth;
 
@@ -36,10 +42,18 @@ window.addEventListener('resize', () => {
     carouselWidth = document.querySelector('.carousel-container').offsetWidth;
 })
 
+const setNextButtonHide = function(products){
+    console.log(products.length)
+    if(products.length <= 5){
+        next.classList.add('hide');
+    }else{
+        next.classList.remove('hide');
+    }
+}
+
 let index = 0;
 
 next.addEventListener('click', () => {
-
     index++;
     prev.classList.add('show');
     track.style.transform = `translateX(-${index * carouselWidth}px)`;
@@ -49,7 +63,6 @@ next.addEventListener('click', () => {
 })
 
 prev.addEventListener('click', () => {
-
     index--;
     next.classList.remove('hide');
 
@@ -59,6 +72,9 @@ prev.addEventListener('click', () => {
     track.style.transform = `translateX(-${index * carouselWidth}px)`;
 })
 
+
+
+displayProducts(products);
 
 // Options types
 
@@ -101,6 +117,7 @@ $track.delegate('#popup-open', 'click', function () {
     let currentProduct = productDataWomens[index];
     getCurrentProduct(currentProduct);
     popup.style.display = "block";
+    console.log("hello")
 })
 
 
@@ -142,3 +159,53 @@ $('.close').click(function(){
 })
    
 
+
+
+
+
+
+
+
+
+
+const carouselInner = document.querySelector('.carousel-inner');
+// const track = document.querySelector('.track');
+const cardContainer = document.querySelectorAll('.card-container');
+
+let width = cardContainer[0].offsetWidth + 30;
+track.style.minWidth = `${cardContainer}.length * width}px`;
+let start;
+let change;
+
+carouselInner.addEventListener('dragstart', (event) => {
+    start = event.clientX;
+})
+carouselInner.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    let touch = event.clientX;
+    change = start - touch;
+})
+carouselInner.addEventListener('dragend', slideShow);
+
+// touchevent
+
+carouselInner.addEventListener('touchstart', (event) => {
+    start = event.touches[0].clientX;
+    console.log(start)
+})
+
+carouselInner.addEventListener('touchmove', (event) => {
+    // event.preventDefault();
+    let touch = event.touches[0];
+    change = start - touch.clientX;
+})
+
+carouselInner.addEventListener('touchend', slideShow);
+
+function slideShow(){
+    if(change > 0){
+        carouselInner.scrollLeft += width;
+    }else{
+        carouselInner.scrollLeft -= width;
+    }
+}

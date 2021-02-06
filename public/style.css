@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
 body{
 
@@ -85,6 +89,10 @@ body{
     margin: auto;
 }
 
+.sort-container{
+    margin: auto;
+}
+
 .price-range-filter-container{
     margin: auto;
 }
@@ -94,11 +102,13 @@ body{
 }
 
 .carousel-container{
-    margin:auto;
-    width: 90%;
-    min-height: 400px;
-    /* overflow: hidden; */
     position: relative;
+    margin:auto;
+    margin-top:2%;
+    margin-bottom: 5%;
+    width: 90%;
+    min-height: 360px;
+    border: yellow solid;
 }
 
 @media screen and (max-width: 1024px){
@@ -118,21 +128,22 @@ body{
 }
 
 .carousel-container .track{
+
     display: inline-flex;
     transition: transform 0.5s;
-    /* border: 1px solid red; */
+
 }
 
 .carousel-container .card-container{
-    width: 259px;
+    width: 260px;
     flex-shrink: 0;
-    height: 300px;
-    border: 1px solid #aaa;
+    height: 360px;
     padding-right: 15px;
     box-sizing:border-box;
 }
 
 .carousel-container .card-container .card{
+    margin: auto;
     width: 100%;
     height: 100%;
     border:1px solid #ccc;
@@ -148,7 +159,7 @@ body{
     border-radius: 50%;
     border: 1px solid #aaa;
     position: absolute;
-    top:30%;
+    top:50%;
     transform: translateY(-50%);
 }
 
@@ -192,7 +203,31 @@ body{
     display: none;
 }
 
+.nav ul{
+    position: absolute;
+    bottom:20px;
+    left:50%;
+    transform: translate(-50%);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    border:yellow solid;
+}
 
+.nav ul li{
+    width:14px;
+    height:14px;
+    border: 2px solid #333;
+    border-radius: 50px;
+    margin: 10px;
+    background: #333;
+    cursor: pointer;
+}
+
+.nav ul li.selected{
+    background: transparent;
+}
 
 .rangeslider{
     width:300px;
@@ -489,3 +524,71 @@ body{
         transform: scale(1,1);
     }
 }
+
+
+/* .carousel-inner{
+    margin:auto;
+    width: 100%;
+    height: 470px;
+    overflow: hidden;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    padding: 10px;
+    mix-blend-mode: darken;
+
+}
+
+.track{
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.track .card-container{
+    min-width: 260px;
+    margin: 0 15px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 5px 2px #0003;
+    border-radius: 2px;
+    border:orange solid;
+}
+
+.card-container .card{
+    position: absolute;
+    color: black;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 120%;
+    text-shadow: -2px 2px 8px #888;
+    pointer-events: none;
+    border:blue solid;
+}
+
+.card-container img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.card-container .card .price{
+    position: relative;
+    margin: auto;
+    flex-basis: 40px;
+    background: #333;
+    color: #fff;
+    flex-grow: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    bottom: 0px;
+}
+
+.card-container button{
+    z-index: 999;
+} */
