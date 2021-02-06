@@ -109,9 +109,9 @@ function getCurrentProduct(currentProduct) {
     const price = currentProduct.price;
     const image = currentProduct.imageSrc;
     const currentProductSplit = currentProduct.productUrl.split('/');
-    const genre = currentProductSplit[4];
-    const industry = currentProductSplit[5];
-    const type = currentProductSplit[6];
+    const genre = currentProductSplit[4].charAt(0).toUpperCase() + currentProductSplit[4].slice(1);
+    const industry = currentProductSplit[5].charAt(0).toUpperCase() + currentProductSplit[5].slice(1);
+    const type = currentProductSplit[6].charAt(0).toUpperCase() + currentProductSplit[6].slice(1);
     appendCurrentProduct(url, title, price, image, genre, industry, type)
 }
 
