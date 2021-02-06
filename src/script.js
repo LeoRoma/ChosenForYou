@@ -92,7 +92,8 @@ createOptionsType()
 
 const popup = document.getElementById("popup");
 const $track = $('.track');
-const $popupCard = $('.popup-card');
+const $popupCardLaptop = $('.popup-card-laptop');
+const $popupCardMobile = $('.popup-card-mobile');
 
 
 $track.delegate('#popup-open', 'click', function () {
@@ -113,16 +114,37 @@ function getCurrentProduct(currentProduct) {
     const industry = currentProductSplit[5].charAt(0).toUpperCase() + currentProductSplit[5].slice(1);
     const type = currentProductSplit[6].charAt(0).toUpperCase() + currentProductSplit[6].slice(1);
     appendCurrentProduct(url, title, price, image, genre, industry, type)
+    appendCurrentProductMobile(url, title, price, image, genre, industry, type)
 }
 
 function appendCurrentProduct(url, title, price, image, genre, industry, type) {
-    $popupCard.html(
+    $popupCardLaptop.html(
         `
-        <div class="popup-image">
+        <div class="popup-image-laptop">
             <img src="${image}" alt="product"/>
         </div>
         
-        <div class="popup-info">
+        <div class="popup-info-laptop">
+            <h1>${title}</h1>
+            <p>${genre}</p>
+            <p>${industry}</p>
+            <p>${type}</p>
+            <p>£${price}</p>
+            <a href="${url}">Visit web page</a>
+        </div>
+        `
+    );
+}
+
+
+function appendCurrentProductMobile(url, title, price, image, genre, industry, type) {
+    $popupCardMobile.html(
+        `
+        <div class="popup-image-mobile">
+            <img src="${image}" alt="product"/>
+        </div>
+        
+        <div class="popup-info-mobile">
             <h1>${title}</h1>
             <p>${genre}</p>
             <p>${industry}</p>
