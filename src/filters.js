@@ -9,13 +9,7 @@ const filters = {
 function applyFilters() {
   // @ts-ignore
     const products = [...productDataWomens];
-    const filteredProducts = products.filter(filterByType).filter(filterByRange).filter(filterBySearch);
-
-    if (filters.sort === 'low-high') {
-        filteredProducts.sort(sortPriceLowToHigh);
-    } else {
-        filteredProducts.sort(sortPriceHighToLow);
-    }
+    const filteredProducts = products.filter(filterByType).filter(filterByRange).filter(filterBySearch).sort(sortPrice);
 
     displayProducts(filteredProducts);
 }
@@ -29,12 +23,12 @@ function filterByType(product) {
 }
 
 // Sort
-function sortPriceLowToHigh(a, b) {
-    return parseFloat(a.price) - parseFloat(b.price);
-}
-
-function sortPriceHighToLow(a, b) {
-    return parseFloat(b.price) - parseFloat(a.price);
+function sortPrice(a, b) {
+    if (filters.sort === 'low-high') {
+        return parseFloat(a.price) - parseFloat(b.price);
+    }else{
+        return parseFloat(b.price) - parseFloat(a.price);
+    }
 }
 
 // Range

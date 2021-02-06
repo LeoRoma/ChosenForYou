@@ -118,14 +118,11 @@ function getCurrentProduct(currentProduct) {
 function appendCurrentProduct(url, title, price, image, genre, industry, type) {
     $popupCard.html(
         `
-   
         <div class="popup-image">
-        <span class="close-left">&times;</span>
             <img src="${image}" alt="product"/>
         </div>
         
         <div class="popup-info">
-        <span class="close-right">&times;</span>
             <h1>${title}</h1>
             <p>${genre}</p>
             <p>${industry}</p>
@@ -138,12 +135,8 @@ function appendCurrentProduct(url, title, price, image, genre, industry, type) {
 }
 // close pop up
 
-
-$popupCard.delegate('.close-right', 'click', function () {
+$('.close').click(function(){
     popup.style.display = "none";
 })
-
-$popupCard.delegate('.close-left', 'click', function () {
-    popup.style.display = "none";
-})
+   
 
