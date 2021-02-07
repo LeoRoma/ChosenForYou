@@ -1,4 +1,4 @@
-var productDataWomens = [
+const productDataWomens = [
     { productUrl: 'https://www.newlook.com/uk/womens/clothing/coats-jackets/dark-grey-faux-fur-longline-coat/p/619712403', imageSrc: 'https://media2.newlookassets.com/i/newlook/619712403.jpg', productTitle: 'Dark Grey Faux Fur Longline Coat', price: '45.99' },
     { productUrl: 'https://www.newlook.com/uk/womens/clothing/tops/black-ribbed-long-sleeve-roll-neck-top/p/635105501', imageSrc: 'https://media2.newlookassets.com/i/newlook/635105501.jpg', productTitle: 'Black Ribbed Long Sleeve Roll Neck Top', price: '8.99' },
     { productUrl: 'https://www.newlook.com/uk/womens/clothing/leggings/black-coated-leather-look-leggings/p/634018201', imageSrc: 'https://media3.newlookassets.com/i/newlook/634018201.jpg', productTitle: 'Black Coated Leather-Look Leggings', price: '19.99' },

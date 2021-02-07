@@ -105,55 +105,42 @@ function slideShow() {
 // Resize carousel 
 
 function ResCarouselSize() {
-    const itemsMainDiv = ('.carousel-inner');
+    const carouselInner = ('.carousel-inner');
     const itemsDiv = ('.track');
-    let itemWidth = "";
-    let incno = 0;
-    const dataItems = ("data-items");
+    let itemWidth = 0;
+
     const itemClass = ('.card-container');
-    let id = 0;
-    let btnParentSb = '';
-    let itemsSplit = '';
-    let sampwidth = $(itemsMainDiv).width();
+    let index = 0;
+
+    let carouselInnerWidth = $(carouselInner).width();
     let bodyWidth = $('body').width();
   
     $(itemsDiv).each(function () {
-        id = id + 1;
+        index++;
         let itemNumbers = $(this).find(itemClass).length;
-        btnParentSb = $(this).parent().attr(dataItems);
-        itemsSplit = btnParentSb.split(',');
-        $(this).parent().attr("id", "carousel-inner" + id);
-
+        $(this).parent().attr("id", "carousel-inner" + index);
+        
 
         if (bodyWidth >= 1200) {
-            incno = itemsSplit[3];
-            itemWidth = sampwidth / incno;
+            itemWidth = carouselInnerWidth / 6;
         }
         else if (bodyWidth >= 992) {
-            incno = itemsSplit[2];
-            itemWidth = sampwidth / incno;
+            itemWidth = carouselInnerWidth / 5;
         }
         else if (bodyWidth >= 468) {
-            incno = itemsSplit[1];
-            itemWidth = sampwidth / incno;
+            itemWidth = carouselInnerWidth / 3;
         }
         else {
-            incno = itemsSplit[0];
-            itemWidth = sampwidth / incno;
+            itemWidth = carouselInnerWidth;
         }
         $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
         $(this).find(itemClass).each(function () {
             $(this).outerWidth(itemWidth);
         });
 
-        $(".leftLst").addClass("over");
-        $(".rightLst").removeClass("over");
-
     });
     width = cardContainer[0].offsetWidth;
 }
-
-
 
 $(document).ready(function () {
     ResCarouselSize();

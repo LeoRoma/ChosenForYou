@@ -393,9 +393,7 @@
 }
 
 @media only screen and (max-width: 992px) {
-    .nav .next{
-        display:none;
-    }
+
 
     .landing-page-wrapper{
         top:20%;
@@ -411,6 +409,9 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .nav .next{
+        display:none;
+    }
 
     .landing-page-wrapper{
         display: inline-block;

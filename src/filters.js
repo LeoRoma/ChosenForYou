@@ -82,7 +82,7 @@ dropDownType.addEventListener('change', () => {
 })
 
 // Sort
-var dropDownPrice = document.getElementById('dropdown-price');
+const dropDownPrice = document.getElementById('dropdown-price');
 
 dropDownPrice.addEventListener("change", function () {
     filters.sort = document.getElementById('dropdown-price').value;
@@ -128,10 +128,9 @@ dropdownRangeButton.addEventListener('click', () => {
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
             if (openDropdown.classList.contains('show')) {
                 openDropdown.classList.remove('show');
             }
