@@ -228,7 +228,7 @@ body{
 #dropdown-range{
     border-radius: 15px;
     height: 120px;
-    /* z-index:999; */
+    z-index:999;
 }
 
 .rangeslider{
@@ -301,6 +301,11 @@ body{
     box-shadow: 0 9px 16px 0 rgba(0,0,0,0.2);
     /* display: flex; */
 }
+
+.popup span{
+    z-index: 999;
+}
+
 
 .popup-card{
     width: 100%;
