@@ -156,3 +156,14 @@ $(document).ready(function () {
 
 });
 
+
+const dropdownViewOptions = document.getElementById('dropdown-view-options');
+
+dropdownViewOptions.addEventListener("change", function () {
+    const selectedViewOption = document.getElementById('dropdown-view-options').value;
+    if(selectedViewOption === 'normal-view'){
+        track.style.display = 'grid'
+    }else{
+        track.style.display = 'flex'
+    }
+})
