@@ -303,6 +303,7 @@ body{
 }
 
 .popup .close{
+    pointer-events: auto;
     z-index: 999;
 }
 
