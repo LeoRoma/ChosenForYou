@@ -12,8 +12,6 @@ body{
 .container{
     width:100%;
     margin: auto;
-    /* border-color:orangered;
-    border-style: solid; */
 }
 
 .landing-page{
@@ -74,6 +72,9 @@ body{
     animation-duration: 4s;  
 }
 
+
+/* Filter */
+
 .filters-container{
     position:relative;
     margin:auto;
@@ -85,6 +86,7 @@ body{
 
 .search-container{
     margin: auto;
+    display: flex;
 }
 
 .sort-container{
@@ -95,9 +97,77 @@ body{
     margin: auto;
 }
 
+.dropdown-sort-price{
+    width: 140px;
+}
+
+#dropdown-range{
+    border-radius: 15px;
+    height: 120px;
+    z-index:999;
+    /* left:50%; */
+}
+
+.rangeslider{
+    padding: 10px;
+    width:250px;
+    /* z-index:999; */
+}
+
+#range-button{
+    margin: auto;
+    width: 100px;
+}
+
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+  
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-type{
+    width: 120px;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+  
+.show {display: block;}
+
 .product-type-filter-container{
     margin: auto;
 }
+
+
+/* Carousel */
 
 .carousel-container{
     position: relative;
@@ -221,71 +291,8 @@ body{
     display: none;
 }
 
-.dropdown-sort-price{
-    width: 140px;
-}
 
-#dropdown-range{
-    border-radius: 15px;
-    height: 120px;
-    z-index:999;
-}
-
-.rangeslider{
-    padding: 10px;
-    width:250px;
-    /* z-index:999; */
-}
-
-#range-button{
-    margin: auto;
-    width: 100px;
-}
-
-.dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-  
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-}
-  
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-  
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-  
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-type{
-    width: 120px;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-  
-.show {display: block;}
-
-
+/* Popup Card */
 .popup {
     display: none;
     margin: auto;
