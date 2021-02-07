@@ -50,7 +50,7 @@ const carouselInner = document.querySelector('.carousel-inner');
 // const track = document.querySelector('.track');
 const cardContainer = document.querySelectorAll('.card-container');
 
-let width = cardContainer[0].offsetWidth + 30;
+let width = cardContainer[0].offsetWidth + 100;
 track.style.minWidth = `${cardContainer}.length * width}px`;
 let start;
 let change;
