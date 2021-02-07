@@ -123,7 +123,7 @@ body{
     padding: 10px;
     width: 260px;
     height: 460px;
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     padding-right: 15px;
     box-sizing:border-box;
 }
@@ -221,10 +221,24 @@ body{
     display: none;
 }
 
+.dropdown-sort-price{
+    width: 140px;
+}
 
+#dropdown-range{
+    border-radius: 15px;
+    height: 120px;
+}
 
 .rangeslider{
-    width:300px;
+    padding: 10px;
+    width:250px;
+    z-index:999;
+}
+
+#range-button{
+    margin: auto;
+    width: 100px;
 }
 
 .dropbtn {
@@ -261,7 +275,11 @@ body{
     text-decoration: none;
     display: block;
 }
-  
+
+.dropdown-type{
+    width: 120px;
+}
+
 .dropdown a:hover {background-color: #ddd;}
   
 .show {display: block;}
@@ -426,7 +444,8 @@ body{
     }
 
     .carousel-container .track{
-        display:table-row;
+        /* display:inline-grid; */
+        grid-template-columns: auto auto auto;
     }
 
     .popup{

@@ -135,7 +135,7 @@ $(document).ready(function () {
                 incno = itemsSplit[2];
                 itemWidth = sampwidth / incno;
             }
-            else if (bodyWidth >= 768) {
+            else if (bodyWidth >= 468) {
                 incno = itemsSplit[1];
                 itemWidth = sampwidth / incno;
             }
