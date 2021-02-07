@@ -107,9 +107,22 @@ function appendCurrentProduct(url, title, price, image, genre, industry, type) {
 
 // close pop up
 
+window.onclick = function(event) {
+    console.log(event)
+    if (event.target == popup) {
+      popup.style.display = "none";
+    }
+}
+
+
+
+
+
 $('.close').click(function () {
     popup.style.display = "none";
 })
+
+
 
 
 
