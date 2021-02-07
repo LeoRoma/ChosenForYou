@@ -53,4 +53,4 @@ The most complicate task for this project was to build a responsive carousel tha
 During this project I have learnt a lot about vanilla JS, and I have found it that is the best practice to build everything from scratch without using any external JS libraries and framework.
 
 ## Demo
-This is the link to the project, where I have hosted in Netlify: https://chosen-for-you.netlify.app/
+This is the link to the project where I have hosted in Netlify: https://chosen-for-you.netlify.app/
