@@ -20,63 +20,12 @@ const displayProducts = (products) => {
             </div>
         `
         }).join(" ");
-        setNextButtonHide(products)
+        // setNextButtonHide(products)
     document.querySelector(".track").innerHTML = htmlString
 }
-
-
-
-{/* <a href="#modal-opened" data-index="${index}" id="popup-open">More Info</a> */}
-
-// Carousel
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
-
-const track = document.querySelector('.track');
-
-const indicatorParents = document.querySelector('.nav ul');
-
-let carouselWidth = document.querySelector('.carousel-container').offsetWidth;
-
-window.addEventListener('resize', () => {
-    carouselWidth = document.querySelector('.carousel-container').offsetWidth;
-})
-
-const setNextButtonHide = function(products){
-    console.log(products.length)
-    if(products.length <= 5){
-        next.classList.add('hide');
-    }else{
-        next.classList.remove('hide');
-    }
-}
-
-let index = 0;
-
-next.addEventListener('click', () => {
-    index++;
-    prev.classList.add('show');
-    track.style.transform = `translateX(-${index * carouselWidth}px)`;
-    if (track.offsetWidth - (index * carouselWidth) < carouselWidth) {
-        next.classList.add('hide');
-    }
-})
-
-prev.addEventListener('click', () => {
-    index--;
-    next.classList.remove('hide');
-
-    if (index === 0) {
-        prev.classList.remove('show');
-    }
-    track.style.transform = `translateX(-${index * carouselWidth}px)`;
-})
-
-
-
 displayProducts(products);
 
-// Options types
+// Get and create options types
 
 let productTypes = []
 function getProductTypes() {
@@ -168,44 +117,15 @@ $('.close').click(function(){
 
 
 
-const carouselInner = document.querySelector('.carousel-inner');
-// const track = document.querySelector('.track');
-const cardContainer = document.querySelectorAll('.card-container');
 
-let width = cardContainer[0].offsetWidth + 30;
-track.style.minWidth = `${cardContainer}.length * width}px`;
-let start;
-let change;
 
-carouselInner.addEventListener('dragstart', (event) => {
-    start = event.clientX;
-})
-carouselInner.addEventListener('dragover', (event) => {
-    event.preventDefault();
-    let touch = event.clientX;
-    change = start - touch;
-})
-carouselInner.addEventListener('dragend', slideShow);
 
-// touchevent
 
-carouselInner.addEventListener('touchstart', (event) => {
-    start = event.touches[0].clientX;
-    console.log(start)
-})
 
-carouselInner.addEventListener('touchmove', (event) => {
-    // event.preventDefault();
-    let touch = event.touches[0];
-    change = start - touch.clientX;
-})
 
-carouselInner.addEventListener('touchend', slideShow);
 
-function slideShow(){
-    if(change > 0){
-        carouselInner.scrollLeft += width;
-    }else{
-        carouselInner.scrollLeft -= width;
-    }
-}
+
+
+
+
+    
