@@ -1,12 +1,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 *{
-    box-sizing: border-box;
     scroll-behavior: smooth;
-}
-
-body{
-
 }
 
 .container{
@@ -17,7 +12,7 @@ body{
 .landing-page{
     margin: auto;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     background: black;
 }
 
@@ -25,7 +20,7 @@ body{
     position: relative;
     margin: auto;
     width: 80%;
-    top: 2%;
+    top: 9%;
     padding: 5%;
     display: flex;
 }
@@ -38,7 +33,7 @@ body{
 .header h1{
     margin: auto;
     color:white;
-    font-size: 10vw;
+    font-size: 9vw;
     line-height: 1;
     position: relative;
     animation: slideInDown 2s;
@@ -49,16 +44,14 @@ body{
     margin: auto;
     color: white;
     position: relative;
-    right: -61%;
+    right: -54%;
     animation: fadein 12s;
     line-height: 5;
     z-index: 2;
-    /* margin-top: -200px; */
 }
 
 .header-image{
     width: 40%;
-    /* height: 600px; */
     position: relative;
     margin: auto;
     overflow: hidden;
@@ -67,7 +60,6 @@ body{
 .header-image img{
     width:100%;
     object-fit: contain;
-    /* min-height: 50%; */
     animation-name: zoominoutsinglefeatured;
     animation-duration: 4s;  
 }
@@ -76,12 +68,12 @@ body{
 /* Filter */
 
 .filters-container{
+    top: 15px;
     position:relative;
     margin:auto;
     width:90%;
     display: flex;
     padding: 1%;
-    /* border: yellow solid; */
 }
 
 .search-container{
@@ -90,7 +82,13 @@ body{
 }
 
 #search-bar{
-    width: 150px;
+    margin: auto;
+    max-width: 100%;
+    height: 100%;
+}
+
+#search-button{
+    width: 100%;
 }
 
 .sort-container{
@@ -101,25 +99,28 @@ body{
     margin: auto;
 }
 
+
 .dropdown-sort-price{
     width: 140px;
 }
 
+.dropdown-sort-price option{
+    text-align: center;
+}
+
 #dropdown-range-button{
-    width: 179px;
+    width: 100%;
 }
 
 #dropdown-range{
     border-radius: 15px;
     height: 120px;
     z-index:999;
-    /* left:50%; */
 }
 
 .rangeslider{
     padding: 10px;
     width:250px;
-    /* z-index:999; */
 }
 
 #range-button{
@@ -166,6 +167,8 @@ body{
     width: 120px;
 }
 
+
+
 .dropdown a:hover {background-color: #ddd;}
   
 .show {display: block;}
@@ -174,23 +177,16 @@ body{
     margin: auto;
 }
 
-.display-option-container{
-    margin: auto;
-    display: none;
-}
-.dropdown-view-options{
-    width:120px;
-}
+
 /* Carousel */
 
 .carousel-container{
     position: relative;
     margin:auto;
-    margin-top:2%;
+    top:15px;
     margin-bottom: 5%;
     width: 90%;
     min-height: 470px;
-    /* border: yellow solid; */
 }
 
 .carousel-container .carousel-inner{
@@ -207,8 +203,6 @@ body{
     padding: 10px;
     width: 260px;
     height: 460px;
-    /* flex-shrink: 0; */
-    padding-right: 15px;
     box-sizing:border-box;
 }
 
@@ -259,17 +253,15 @@ body{
     color: #fff;
     flex-grow: 0;
     text-align: center;
-    /* padding: 10px; */
     box-sizing: border-box;
 }
 
 .card-title{
-    padding: 3px;
-  
+    text-align: center;
 }
 
 .card-title h5{
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .card-price p{
@@ -280,7 +272,6 @@ body{
     flex-basis: 40px;
     flex-grow: 0;
     text-align: center;
-    /* padding: 10px; */
     box-sizing: border-box;
 }
 
@@ -314,13 +305,12 @@ body{
     position: absolute; 
     z-index: 1;
     left: 50%;
-    top: 79%;
+    top: 75%;
     transform: translate(-50%, -50%);
     overflow: auto; 
     background-color: white; 
     border-radius: 10px;
     box-shadow: 0 9px 16px 0 rgba(0,0,0,0.2);
-    /* display: flex; */
     z-index: 999;
 }
 
@@ -332,7 +322,6 @@ body{
 
 .popup-card{
     width: 100%;
-    /* height: 400px; */
     display:flex;
 }
 
@@ -341,13 +330,12 @@ body{
     width: 50%;
     height: 405px;
     margin: auto;
-    flex: 0 0 50%
 }
 
 .popup-image img{
     width: 100%;
     height: 405px;
-    object-fit: fill;
+    object-fit: contain;
     border-radius: 10px;
     animation: fadein 2s;
 }
@@ -380,13 +368,9 @@ body{
 }
 
 @media only screen and (max-width: 1200px) {
-    .landing-page-wrapper{
-        top:20%;
-    }
 
     .popup{
         width:60%;
-        /* height: 630px; */
     }
 
     .popup-card{
@@ -409,6 +393,10 @@ body{
 }
 
 @media only screen and (max-width: 992px) {
+    .nav .next{
+        display:none;
+    }
+
     .landing-page-wrapper{
         top:20%;
     }
@@ -436,7 +424,6 @@ body{
     .header{
         width:90%;
         margin:auto;
-        /* text-align: center; */
     }
     
     .header h1{
@@ -472,15 +459,18 @@ body{
         display:table;
     }
 
-    .display-option-container{
-        display: inline-block;
+    .ui-input-text{
+        width: 100%;
     }
 
-    .carousel-container .track{
-        /* display:inline-grid; */
-        grid-template-columns: auto auto auto;
+    .dropdown-type{
+        width: 100%;
     }
-
+    
+    .dropdown-sort-price{
+        width: 100%;
+    }
+  
     .popup{
         width:90%;
     }

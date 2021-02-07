@@ -22,7 +22,7 @@
 
                 </div>
                 <div class="header-image">
-
+                    <img src="https://media2.newlookassets.com/i/newlook/619653214.jpg" alt="landing-image" />
                 </div>
             </div>
         </div>
@@ -30,13 +30,13 @@
         <div class="filters-container">
 
             <div class="search-container">
-                <input type="text" id="search-bar" placeholder="Search a product..." title="Type in a product title">
-                <button id="search-button" style="width: 50px;"><i class="fa fa-search"></i></button>
+                <input class="search-bar" type="text" id="search-bar" placeholder="Search a product..." title="Type in a product title">
+                <button id="search-button" style="width: 60px;"><i class="fa fa-search"></i></button>
             </div>
 
             <div class="sort-container">
                 <select class="dropdown-sort-price" id="dropdown-price" name="sort-price">
-                    <option value="low-high">Sort By: Price</option>
+                    <option>Sort By: Price</option>
                     <option value="low-high">Price Low - High</option>
                     <option value="high-low">Price High - Low</option>
                 </select>
@@ -56,23 +56,14 @@
             </div>
 
             <div class="product-type-filter-container">
-                <select class="dropdown-type" id="dropdown-type" name="type" >
+                <select class="dropdown-type" id="dropdown-type" name="select-type" >
                     <option>Select type:</option>
                 </select>
             </div>
 
-
-            <div class="display-option-container">
-                <select class="dropdown-view-options" id="dropdown-view-options" name="view-options" >
-                    <option>Change view:</option>
-                    <option value="normal-view">Normal</option>
-                    <option value="carousel-view">Carousel</option>
-                </select>
-            </div>
         </div>
 
         <div class="carousel-container">
-            <!-- <button class="" id=""></button> -->
             <div class="carousel-inner" data-items="1,3,5,6" data-slide="1" id="carousel-inner"  data-interval="1000">
                 <div class="track"></div>
             </div>
@@ -95,9 +86,10 @@
     </div>
 
     <script src="./src/data.js"></script>
-    <script src="./src/script.js"></script>
-    <script src="./src/filters.js"></script>
+    <script src="./src/popup.js"></script>
     <script src="./src/carousel.js"></script>
+    <script src="./src/filters.js"></script>
+    
 </body>
 
 </html>

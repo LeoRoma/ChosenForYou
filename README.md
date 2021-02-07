@@ -41,7 +41,7 @@ Once I have completed to build all these filters I have founded a bug, which is 
 The pop up task I have build with a modal, where once the clicks on a product card appear a card with all the information and the url of the product.
 Completed this last task, I have started to create a responsive landing page and trying to experiment some animation. And I have also build a responsive pop up card.
 The most complicate task for this project was to build a responsive carousel that displays multiple items without any external libraries or framework. To complete this task I have did several research on Google to look at the different documentations that suit for my purpose. I have added also the possibility to scroll the carousel with touch for the mobile version. For the mobile version, I thought that was a nice to have to give to the user an option to change the view of the products from a carousel to normal. 
-During this project I have learnt a lot about vanilla JS, and I have found it very interesting to build everything from scratch without using any external libraries and framework.
+During this project I have learnt a lot about vanilla JS, and I have found it that is the best practice to build everything from scratch without using any external JS libraries and framework.
 
 ## Demo
 This is the link to the project, where I have hosted in Netlify: https://chosen-for-you.netlify.app/

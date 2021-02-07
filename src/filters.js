@@ -1,4 +1,3 @@
-  
 const filters = {
     type: "",
     search: "",
@@ -7,11 +6,11 @@ const filters = {
 };
 
 function applyFilters() {
-  // @ts-ignore
     const products = [...productDataWomens];
     const filteredProducts = products.filter(filterByType).filter(filterByRange).filter(filterBySearch).sort(sortPrice);
 
     displayProducts(filteredProducts);
+    ResCarouselSize()
 }
 
 // Filters
@@ -26,7 +25,7 @@ function filterByType(product) {
 function sortPrice(a, b) {
     if (filters.sort === 'low-high') {
         return parseFloat(a.price) - parseFloat(b.price);
-    }else{
+    } else {
         return parseFloat(b.price) - parseFloat(a.price);
     }
 }
@@ -46,7 +45,32 @@ function filterBySearch(product) {
 }
 
 // Listeners
+
+
 // Type
+// Get options for types
+let productTypes = []
+
+for (let i = 0; i < productDataWomens.length; i++) {
+    let productUrlSplit = productDataWomens[i].productUrl.split('/');
+    let item = productUrlSplit[6];
+    if (!productTypes.includes(item)) {
+        productTypes.push(item);
+    }
+}
+
+// Create options for type
+let optionsType = "<option value='default'>Select type</option>";
+
+for (let i = 0; i < productTypes.length; i++) {
+    let item = productTypes[i].charAt(0).toUpperCase() + productTypes[i].slice(1);
+    optionsType += `<option value="${item.toLowerCase()}">${item}</option>`
+}
+document.getElementById("dropdown-type").innerHTML = optionsType;
+
+
+// Select Type
+
 const dropDownType = document.getElementById('dropdown-type');
 dropDownType.addEventListener('change', () => {
     filters.type = document.getElementById('dropdown-type').value;
@@ -65,7 +89,6 @@ dropDownPrice.addEventListener("change", function () {
 })
 
 // Submit range
-// @ts-ignore
 $('#range-button').click(function () {
     applyFilters()
 })
@@ -83,18 +106,13 @@ searchButton.addEventListener('click', () => {
 });
 
 // Range Selection
-// @ts-ignore
 $(() => {
     let priceMin, priceMax;
-    // @ts-ignore
     $('#price-min').change(function () {
-        // @ts-ignore
         priceMin = $('#price-min').val().toString();
         filters.range.priceMin = parseFloat(priceMin);
     })
-    // @ts-ignore
     $('#price-max').change(function () {
-        // @ts-ignore
         priceMax = $('#price-max').val().toString();
         filters.range.priceMax = parseFloat(priceMax);
     })
