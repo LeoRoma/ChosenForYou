@@ -67,6 +67,7 @@ prev.addEventListener('click', () => {
     }
     track.style.transform = `translateX(-${index * carouselWidth}px)`;
 })
+
 displayProducts(products);
 
 // Touch carousel 
@@ -101,12 +102,7 @@ function slideShow() {
     }
 }
 
-
-
-
-
 // Resize carousel 
-
 
 function ResCarouselSize() {
     const itemsMainDiv = ('.carousel-inner');
@@ -157,15 +153,12 @@ function ResCarouselSize() {
     width = cardContainer[0].offsetWidth;
 }
 
+
+
 $(document).ready(function () {
-
-
     ResCarouselSize();
-
     $(window).resize(function () {
         ResCarouselSize();
     });
-
-  
 });
 

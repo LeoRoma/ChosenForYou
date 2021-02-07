@@ -10,6 +10,7 @@ function applyFilters() {
     const filteredProducts = products.filter(filterByType).filter(filterByRange).filter(filterBySearch).sort(sortPrice);
 
     displayProducts(filteredProducts);
+    
     ResCarouselSize()
 }
 
