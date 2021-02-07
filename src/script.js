@@ -7,21 +7,27 @@ function getLandingPageImage() {
 getLandingPageImage();
 
 const displayProducts = (products) => {
-    const htmlString = products
+    if (products.length === 0) {
+        const productsNotFound = `<div class="not-found"><h2>Items not found</h2></div>`;
+        document.querySelector(".track").innerHTML = productsNotFound;
+    }else{
+        const htmlString = products
         .map((product, index) => {
             return `
-            <div class="card-container">
-                <div class="card" id="card"> 
-                    <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
-                    <div class="card-title"><h5>${product.productTitle}</h5></div>
-                    <div class="card-price"><p>£${product.price}</p></div>
-                    <a href="#modal-opened" data-index="${index}" id="popup-open">More Info</a>
-                </div>
+        <div class="card-container">
+            <div class="card" id="card"> 
+                <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
+                <div class="card-title"><h5>${product.productTitle}</h5></div>
+                <div class="card-price"><p>£${product.price}</p></div>
+                <a href="#modal-opened" data-index="${index}" id="popup-open">More Info</a>
             </div>
-        `
+        </div>
+    `
         }).join(" ");
-        // setNextButtonHide(products)
-    document.querySelector(".track").innerHTML = htmlString
+    // setNextButtonHide(products)
+    document.querySelector(".track").innerHTML = htmlString;
+    }
+
 }
 displayProducts(products);
 
@@ -29,9 +35,7 @@ displayProducts(products);
 
 let productTypes = []
 function getProductTypes() {
-    // @ts-ignore
     for (let i = 0; i < productDataWomens.length; i++) {
-        // @ts-ignore
         let productUrlSplit = productDataWomens[i].productUrl.split('/');
         let item = productUrlSplit[6];
         if (!productTypes.includes(item)) {
@@ -103,10 +107,9 @@ function appendCurrentProduct(url, title, price, image, genre, industry, type) {
 
 // close pop up
 
-$('.close').click(function(){
+$('.close').click(function () {
     popup.style.display = "none";
 })
-   
 
 
 
@@ -128,4 +131,4 @@ $('.close').click(function(){
 
 
 
-    
+
