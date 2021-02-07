@@ -302,7 +302,7 @@ body{
     /* display: flex; */
 }
 
-.popup span{
+.popup .close{
     z-index: 999;
 }
 
