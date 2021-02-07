@@ -394,11 +394,6 @@
 
 @media only screen and (max-width: 992px) {
 
-
-    .landing-page-wrapper{
-        top:20%;
-    }
-
     .popup{
         width: 70%;
     }
@@ -415,7 +410,6 @@
 
     .landing-page-wrapper{
         display: inline-block;
-        top:5%;
     }
 
     .landing-page-wrapper{
@@ -441,7 +435,6 @@
     }
     
     .header-image{
-        top:30px;
         width: 90%;
         height: 300px;
         margin: auto;

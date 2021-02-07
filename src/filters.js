@@ -11,7 +11,7 @@ function applyFilters() {
 
     displayProducts(filteredProducts);
     
-    ResCarouselSize()
+    ResizeCarousel(); 
 }
 
 // Filters

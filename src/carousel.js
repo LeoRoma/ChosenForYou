@@ -4,10 +4,10 @@ const displayProducts = (products) => {
     if (products.length === 0) {
         const productsNotFound = `<div class="not-found"><h2>Items not found</h2></div>`;
         document.querySelector(".track").innerHTML = productsNotFound;
-    }else{
+    } else {
         const htmlString = products
-        .map((product, index) => {
-            return `
+            .map((product, index) => {
+                return `
         <div class="card-container">
             <div class="card" id="card"> 
                 <div class="card-image"><img src="${product.imageSrc}" width="200" height="200" style="border-radius=15%;"/></div>
@@ -17,10 +17,10 @@ const displayProducts = (products) => {
             </div>
         </div>
     `
-        }).join(" ");
-    setNextButtonHide(products)
+            }).join(" ");
+        setNextButtonHide(products)
 
-    document.querySelector(".track").innerHTML = htmlString;
+        document.querySelector(".track").innerHTML = htmlString;
 
     }
 }
@@ -96,7 +96,7 @@ carouselInner.addEventListener('touchend', slideShow);
 function slideShow() {
     if (change > 0) {
         carouselInner.scrollLeft += width;
-       
+
     } else {
         carouselInner.scrollLeft -= width;
     }
@@ -104,7 +104,7 @@ function slideShow() {
 
 // Resize carousel 
 
-function ResCarouselSize() {
+function ResizeCarousel() {
     const carouselInner = ('.carousel-inner');
     const itemsDiv = ('.track');
     let itemWidth = 0;
@@ -114,12 +114,12 @@ function ResCarouselSize() {
 
     let carouselInnerWidth = $(carouselInner).width();
     let bodyWidth = $('body').width();
-  
+
     $(itemsDiv).each(function () {
         index++;
         let itemNumbers = $(this).find(itemClass).length;
         $(this).parent().attr("id", "carousel-inner" + index);
-        
+
 
         if (bodyWidth >= 1200) {
             itemWidth = carouselInnerWidth / 6;
@@ -143,9 +143,9 @@ function ResCarouselSize() {
 }
 
 $(document).ready(function () {
-    ResCarouselSize();
+    ResizeCarousel();
     $(window).resize(function () {
-        ResCarouselSize();
+        ResizeCarousel();
     });
 });
 
