@@ -103,43 +103,40 @@ function slideShow() {
 }
 
 // Resize carousel 
-
+ResizeCarousel();
 function ResizeCarousel() {
     const carouselInner = ('.carousel-inner');
     const itemsDiv = ('.track');
-    let itemWidth = 0;
-
-    const itemClass = ('.card-container');
-    let index = 0;
-
+    const cardContainer = ('.card-container');
     let carouselInnerWidth = $(carouselInner).width();
     let bodyWidth = $('body').width();
+    let cardContainerWidth = 0;
+    let index = 0;
 
     $(itemsDiv).each(function () {
         index++;
-        let itemNumbers = $(this).find(itemClass).length;
+        let itemNumbers = $(this).find(cardContainer).length;
         $(this).parent().attr("id", "carousel-inner" + index);
 
-
         if (bodyWidth >= 1200) {
-            itemWidth = carouselInnerWidth / 6;
+            cardContainerWidth = carouselInnerWidth / 6;
         }
         else if (bodyWidth >= 992) {
-            itemWidth = carouselInnerWidth / 5;
+            cardContainerWidth = carouselInnerWidth / 5;
         }
         else if (bodyWidth >= 468) {
-            itemWidth = carouselInnerWidth / 3;
+            cardContainerWidth = carouselInnerWidth / 3;
         }
         else {
-            itemWidth = carouselInnerWidth;
+            cardContainerWidth = carouselInnerWidth;
         }
-        $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
-        $(this).find(itemClass).each(function () {
-            $(this).outerWidth(itemWidth);
+        $(this).css({ 'transform': 'translateX(0px)', 'width': cardContainerWidth * itemNumbers });
+        $(this).find(cardContainer).each(function () {
+            $(this).outerWidth(cardContainerWidth);
         });
-
     });
-    width = cardContainer[0].offsetWidth;
+
+    width = cardContainerWidth;
 }
 
 $(document).ready(function () {
