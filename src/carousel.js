@@ -25,7 +25,7 @@ const displayProducts = (products) => {
     }
 }
 
-
+let bodyWidth = $('body').width();
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
@@ -40,9 +40,17 @@ window.addEventListener('resize', () => {
 })
 
 const setNextButtonHide = function (products) {
-    if (products.length <= 5) {
+    
+    if (bodyWidth >= 1200 && products.length <= 6) {
         next.classList.add('hide');
-    } else {
+    }
+    else if (bodyWidth >= 992 && products.length <= 5) {
+        next.classList.add('hide');
+    }
+    else if (bodyWidth >= 468 && products.length <= 3) {
+        next.classList.add('hide');
+    }
+    else {
         next.classList.remove('hide');
     }
 }
@@ -109,14 +117,10 @@ function ResizeCarousel() {
     const itemsDiv = ('.track');
     const cardContainer = ('.card-container');
     let carouselInnerWidth = $(carouselInner).width();
-    let bodyWidth = $('body').width();
     let cardContainerWidth = 0;
-    let index = 0;
 
     $(itemsDiv).each(function () {
-        index++;
-        let itemNumbers = $(this).find(cardContainer).length;
-        $(this).parent().attr("id", "carousel-inner" + index);
+        let cardNumbers = $(this).find(cardContainer).length;
 
         if (bodyWidth >= 1200) {
             cardContainerWidth = carouselInnerWidth / 6;
@@ -130,7 +134,7 @@ function ResizeCarousel() {
         else {
             cardContainerWidth = carouselInnerWidth;
         }
-        $(this).css({ 'transform': 'translateX(0px)', 'width': cardContainerWidth * itemNumbers });
+        $(this).css({ 'transform': 'translateX(0px)', 'width': cardContainerWidth * cardNumbers });
         $(this).find(cardContainer).each(function () {
             $(this).outerWidth(cardContainerWidth);
         });
