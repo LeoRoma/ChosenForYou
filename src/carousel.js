@@ -25,7 +25,7 @@ const displayProducts = (products) => {
     }
 }
 
-let bodyWidth = $('body').width();
+
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
@@ -40,14 +40,14 @@ window.addEventListener('resize', () => {
 })
 
 const setNextButtonHide = function (products) {
-    
+    let bodyWidth = $('body').width();
     if (bodyWidth >= 1200 && products.length <= 6) {
         next.classList.add('hide');
     }
-    else if (bodyWidth >= 992 && products.length <= 5) {
+    else if (bodyWidth >= 992 && products.length  <= 5) {
         next.classList.add('hide');
     }
-    else if (bodyWidth >= 468 && products.length <= 3) {
+    else if (bodyWidth >= 468 && products.length  <= 3) {
         next.classList.add('hide');
     }
     else {
@@ -117,6 +117,7 @@ function ResizeCarousel() {
     const itemsDiv = ('.track');
     const cardContainer = ('.card-container');
     let carouselInnerWidth = $(carouselInner).width();
+    let bodyWidth = $('body').width();
     let cardContainerWidth = 0;
 
     $(itemsDiv).each(function () {
@@ -142,6 +143,7 @@ function ResizeCarousel() {
 
     width = cardContainerWidth;
 }
+
 
 $(document).ready(function () {
     ResizeCarousel();
