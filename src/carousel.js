@@ -103,7 +103,7 @@ function slideShow() {
 }
 
 // Resize carousel 
-ResizeCarousel();
+
 function ResizeCarousel() {
     const carouselInner = ('.carousel-inner');
     const itemsDiv = ('.track');
